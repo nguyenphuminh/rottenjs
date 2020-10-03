@@ -23,7 +23,7 @@ Add this tag to the 'head' tag of your .html files:
 	<script src='rotten.min.js' type='text/javascript'></script>
 
 ### Functions and methods
-Docs for the functions of RottenJS will be updated soon, for now, you can find the usage of it through its source code.
+<a href='DOCUMENTATION.md'>View in the Docs</a>
 
 ## Copyrights and License
 Copyrights © 2020 Nguyen Phu Minh
