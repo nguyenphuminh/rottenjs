@@ -55,10 +55,10 @@ function rotten(selector){
 		prepend: (value) => {
 			obj.el.innerHTML=`${value}${obj.el.innerHTML}`;
 		},
-		remove: (value) => {
+		remove: () => {
 			obj.el.outerHTML='';
 		},
-		empty: (value) => {
+		empty: () => {
 			obj.el.innerHTML='';
 		},
 	}
