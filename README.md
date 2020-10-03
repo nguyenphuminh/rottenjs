@@ -23,7 +23,7 @@ Add this tag to the 'head' tag of your .html files:
 	<script src='rotten.min.js' type='text/javascript'></script>
 
 ### Functions and methods
-<a href='DOCUMENTATION.md'>View in the Docs</a>
+<a href='DOCUMENTATION.md'>VIEW IN THE DOCS</a>
 
 ## Copyrights and License
 Copyrights © 2020 Nguyen Phu Minh
