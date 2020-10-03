@@ -11,11 +11,11 @@ RottenJS is a light-weight (2kb) Javascript library for DOM. It is named 'Rotten
 ### Installation
 You can clone RottenJS with git:
 
-		git clone https://github.com/nguyenphuminh/RottenJS.git
+	git clone https://github.com/nguyenphuminh/RottenJS.git
 
 Or install it in npm:
 
-		npm i rottenjs
+	npm i rottenjs
 
 ### Add RottenJS to your project
 Add this tag to the 'head' tag of your .html files:
