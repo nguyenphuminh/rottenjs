@@ -1,31 +1,46 @@
-<div align="center">
-	<img src='assets/logo.png'/>
-	<br/>
-	<p>A simple, light-weight (2kb) Javascript library for DOM</p>
+<div align='center'>
+    <img src='assets/logo.png'/>
+    <br/>
+    <b>MarpleJS is a light-weight Javascript library for simple Maths</b>
 </div>
+<br/>
 
-## What is RottenJS ?
-RottenJS is a light-weight (2kb) Javascript library for DOM. It is named 'Rotten' because it is in fact kinda terrible and is not well-built at all, and just technically a clone of jQuery. But, if you are interested in experimental or open-source projects, RottenJS if a good library for you :)
+## Usage
+In your .html file, insert this to the "head" tag:
 
-## Getting started
-### Installation
-You can clone RottenJS with git:
+    <script type="text/javascript" src="marple.js"></script>
 
-		git clone https://github.com/nguyenphuminh/RottenJS.git
+## Functions 
 
-Or install it in npm:
-
-		npm i rottenjs
-
-### Add RottenJS to your project
-Add this tag to the 'head' tag of your .html files
-
-	<script src='rotten.min.js' type='text/javascript'></script>
-
-### Functions and methods
-Docs for the functions of RottenJS will be updated soon, for now, you can find the usage of it through its source code.
+<li>sum(arr)</li>
+<li>odd(num)</li>
+<li>even(num)</li>
+<li>sumToN(n)</li>
+<li>sumXToY(x,y)</li>
+<li>lcm(a,b)</li>
+<li>gcd(a,b)</li>
+<li>rndI(a,b)</li>
+<li>floor(a)</li>
+<li>toFix(a,b)</li>
+<li>round(a)</li>
+<li>PI()</li>
+<li>square(a)</li>
+<li>sqrt(a)</li>
+<li>pow(a,b)</li>
+<li>divisible(a,b)</li>
+<li>prime(a)</li>
+<li>findPrime(a,b)</li>
+<li>perfectN(a)</li>
+<li>max(arr)</li>
+<li>min(arr)</li>
+<li>sin(a)</li>
+<li>abs(a)</li>
+<li>isFin(a)</li>
+<li>isNaN(a)</li>
+<li>cos(a)</li>
+<li>tan(a)</li>
 
 ## Copyrights and License
-Copyrights © 2020 Nguyen Phu Minh
+Copyrighted © 2020 Nguyen Phu Minh
 
 This library is licensed under the MIT License
