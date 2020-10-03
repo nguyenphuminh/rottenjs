@@ -30,7 +30,7 @@ HTML:
 
 JS:
 
-	const obj = rotten('div');
+	let obj = rotten('div');
 
 ### Adding texts to the object
 You can change contents of a object by using:
