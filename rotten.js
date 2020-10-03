@@ -78,10 +78,35 @@ const rottenUI = {
 		a.innerHTML = `<img style="position:fixed; right:0; top:0; min-width:100%; min-height:100%; width:auto; height:auto; z-index:-1" src="${path}"></img> ${a.innerHTML}`;
 	},
 	setTitle: function(title){
-		document.querySelector('title').innerHTML=title;
+		let a = document.querySelector('head');
+		if (a.innerHTML.indexOf('<title>') == -1){
+			a.innerHTML = a.innerHTML + `<title>${title}</title>`;
+		} else {
+			let b = document.querySelector('title');
+			b.innerHTML = title;
+		}
 	},
 	setLogo: function(path){
 		let a = document.querySelector('head');
 		a.innerHTML = `<link rel='icon' href='${path}'></link>${a.innerHTML}`;
 	},
+	setLoadBar: function(obj){
+		let a = document.querySelector("body");
+		a.innerHTML = "<div class='processjs'></div>" + a.innerHTML;
+		let b = document.querySelector(".processjs");
+		if (obj.position == undefined) obj.position = "absolute";
+		if (obj.size == undefined) obj.size = "5px";
+		if (obj.color == undefined) obj.color = "red";
+		b.style = `position: absolute;left: 0;right:0;height:${obj.size};background-color:${obj.color}`;
+		if (obj.speed == undefined) obj.speed = 3;
+		let c=0;
+		let count = setInterval(function(){
+			c++;
+			b.style.width = c + "%";
+			if (c==101){
+				clearInterval(count);
+				b.outerHTML = "";
+			}
+		},obj.speed);
+	}
 }
