@@ -15,7 +15,9 @@
 		obj.text('Hello, World!');
 		obj.css('font-size', '100px');
 		obj.css('color', 'red');
-		obj.show(3000);
+		obj.show(3000, function(){
+			console.log('The text has been shown');
+		});
 
 		let obj2 = rotten("p");
 		obj2.text('Hello');

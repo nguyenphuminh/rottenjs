@@ -70,6 +70,12 @@ You can also show the object again, using:
 
 	obj.show(millisecond);
 
+You can add some callback when the object is show and hide! For example, this will alert 'The text has been shown' when the object is shown:
+
+	obj.show(3000, function(){
+		alert('The text has been shown');
+	});
+
 ### Working with attributes
 You can change/create a new attribute by:
 

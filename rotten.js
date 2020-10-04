@@ -13,22 +13,34 @@ function rotten(selector){
 			let new_value = `;${obj.el.getAttribute('style')};${property}:${value}`
 			obj.el.style = new_value;
 		},
-		hide: (time) => {
+		hide: (time, callback) => {
 			if (time == undefined){
 				prevDisplay = obj.el.style.display;
 				obj.el.style.display = 'none';
+				if (callback != undefined){
+					callback();
+				}
 			} else {
 				setTimeout(function(){
 					obj.el.style.display = 'none';
+					if (callback != undefined){
+						callback();
+					}
 				},time)
 			}
 		},
-		show: (time) => {
+		show: (time, callback) => {
 			if (time == undefined){
 				obj.el.style.display = prevDisplay;
+				if (callback != undefined){
+					callback();
+				}
 			} else {
 				setTimeout(function(){
 					obj.el.style.display = prevDisplay;
+					if (callback != undefined){
+						callback();
+					}
 				},time)
 			}
 		},
