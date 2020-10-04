@@ -1,5 +1,5 @@
 <div align="center">
-	<img src='assets/logo.png'/>
+	<a href='https://rottenjs.herokuapp.com/'><img src='assets/logo.png'/></a>
 	<br/>
 	<p>A simple, light-weight (2.5kb) Javascript library for DOM</p>
 </div>
