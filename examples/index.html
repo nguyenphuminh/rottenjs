@@ -4,35 +4,47 @@
 </head>
 <body>
 	<input/><button></button>
-	<div></div>
-	<p id='demo'></p>
+	<br/>
+	<br/>
+	<div>User's input:</div>
+	<div class='user-input'></div>
+	<br/>
+	<br/>
+	<div class='box'></div>
+	<div class='text-shown'></div>
 	<script type="text/javascript" src="rotten.js"></script>
 	<script type="text/javascript">
 		rottenUI.setTitle('Hello, World!');
 
-		let obj = rotten('div');
+		let obj = rotten('.text-shown');
 		obj.hide();
-		obj.text('Hello, World!');
+		obj.text('Surprised ?');
 		obj.css('font-size', '100px');
 		obj.css('color', 'red');
 		obj.show(3000, function(){
 			console.log('The text has been shown');
 		});
 
-		let obj2 = rotten("p");
-		obj2.text('Hello');
-		obj2.hover(function(){
-			console.log('Out of text');
-		}, function(){
-			console.log('On text')
+		let obj2 = rotten('input');
+
+		let obj3 = rotten('button');
+		let obj31 = rotten('.user-input');
+		obj3.text('Click');
+		obj3.click(function(){
+			let value=`${obj2.input()}\n`;
+			obj31.text(obj31.html()+value);
 		});
 
-		let obj3 = rotten('input');
+		let obj4 = rotten('.box');
 
-		let obj4 = rotten('button');
-		obj4.text('Click and press F12');
-		obj4.click(function(){
-			console.log("The user typed: " + obj3.input());
+		obj4.css('width', '100px');
+		obj4.css('height', '100px');
+		obj4.css('background-color', 'red');
+
+		obj4.hover(function(){
+			obj4.css('background-color', 'red');
+		}, function(){
+			obj4.css('background-color', 'blue');
 		});
 	</script>
 </body>
