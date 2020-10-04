@@ -1,11 +1,11 @@
 <div align="center">
 	<img src='assets/logo.png'/>
 	<br/>
-	<p>A simple, light-weight (2kb) Javascript library for DOM</p>
+	<p>A simple, light-weight (2.5kb) Javascript library for DOM</p>
 </div>
 
 ## What is RottenJS ?
-RottenJS is a light-weight (2kb) Javascript library for DOM. It is named 'Rotten' because it is in fact kinda terrible and is not well-built at all, and just technically a clone of jQuery. But, if you are interested in experimental or open-source projects, RottenJS is a good library for you :)
+RottenJS is a light-weight (2.5kb) Javascript library for DOM. It is named 'Rotten' because it is in fact kinda terrible and is not well-built at all, and just technically a clone of jQuery. But, if you are interested in experimental or open-source projects, RottenJS is a good library for you :)
 
 ## Getting started
 ### Installation
