@@ -62,7 +62,7 @@ Notice that that will hide the object immediately, so to set the time for it to 
 
 	obj.hide(millisecond);
 
-For example:
+Example:
 
 	obj.hide(1000); // Hide the object after 1 second.
 
@@ -75,7 +75,7 @@ You can change/create a new attribute by:
 
 	obj.attr(attribute_name, value);
 
-For example:
+Example:
 
 	obj.attr('class', 'Hello');
 
@@ -95,10 +95,49 @@ To remove the object entirely, use:
 
 	obj.remove();
 
+### Hover event
+To create a hover effect, you can type:
+
+	obj.hover(outhover, onhover);
+
+Example:
+
+	obj.hover(function(){
+		console.log('Out of text');
+	},function(){
+		console.log('On text');
+	});
+
+### Taking inputs from HTML form
+Taking input can be done by:
+
+	obj.input(); //Would return the input of the HTML input form
+
+If you want to compare this input to another input to do a callback, you can use:
+
+	obj.input(value_to_compare, callback);
+
+Example:
+
+	obj.input('Hello', function(){
+		alert('Have a good day');
+	});
+
+### Click event
+You can add a click event for an object through:
+
+	obj.click(callback);
+
+Example:
+
+	obj.click(function(){
+		alert('You clicked me!');
+	});
+
 ### Using normal Javascript methods
 If you don't know, 'obj.el' is actually an object that targets to the previous object, so you can apply Javascript methods.
 
-For examples:
+Example:
 
 	obj.el.innerHTML = 'Hello, World!';
 
@@ -123,6 +162,15 @@ You would need to use a new module called 'rottenUI'.
 
 	rottenUI.setTitle(title);
 
-### Change website/s logo
+### Change website's logo
 
 	rottenUI.setLogo(logo_path);
+
+### Add a top loading bar
+
+	rottenUI.setLoadBar({
+		color:/*CSS Color*/,
+		size:/*Size*/,
+		speed:/*Millisecond*/,
+		position:/*CSS Position*/
+	});
