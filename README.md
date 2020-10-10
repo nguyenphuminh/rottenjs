@@ -1,5 +1,5 @@
 <div align="center">
-	<a href='https://rottenjs.herokuapp.com/'><img src='assets/logo.png'/></a>
+	<img src='assets/logo.png'/>
 	<br/>
 	<p>A simple, light-weight (2.5kb) Javascript library for DOM</p>
 </div>
@@ -22,8 +22,7 @@ Add this tag to the 'head' tag of your .html files:
 
 	<script src='rotten.min.js' type='text/javascript'></script>
 
-### Functions and methods
-<a href='DOCUMENTATION.md'>VIEW IN THE DOCS</a>
+### (Functions and methods)[DOCUMENTATION.md]
 
 ## Copyrights and License
 Copyrights © 2020 Nguyen Phu Minh
