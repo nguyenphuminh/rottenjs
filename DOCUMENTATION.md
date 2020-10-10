@@ -147,6 +147,21 @@ Example:
 
 	obj.el.innerHTML = 'Hello, World!';
 
+### States of object
+Save current state:
+
+	obj.saveState();
+
+Load saved state:
+
+	obj.loadState();
+
+Remove saved state: 
+
+	obj.removeState();
+
+<b>Note: All the states are stored in the 'localStorage' of the browser.</b>
+
 
 ## Some optional functions for UI development
 

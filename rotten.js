@@ -96,6 +96,15 @@ function rotten(selector){
 			obj.el.onmouseenter = function(){
 				onhover();
 			}
+		},
+		saveState: () => {
+			localStorage.setItem(selector, obj.el.innerHTML);
+		},
+		loadState: () => {
+			obj.el.innerHTML = localStorage.getItem(selector);
+		},
+		clearState: () => {
+			localStorage.removeItem(selector);
 		}
 	}
 	return obj;
