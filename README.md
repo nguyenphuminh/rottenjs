@@ -22,7 +22,7 @@ Add this tag to the 'head' tag of your .html files:
 
 	<script src='rotten.min.js' type='text/javascript'></script>
 
-### (Functions and methods)[DOCUMENTATION.md]
+### [Functions and methods](DOCUMENTATION.md)
 
 ## Copyrights and License
 Copyrights © 2020 Nguyen Phu Minh
