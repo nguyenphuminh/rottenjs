@@ -140,6 +140,21 @@ Example:
 		alert('You clicked me!');
 	});
 
+### Adding/Removing classes
+Adding classes:
+	
+	obj.addClass(class_name);
+
+Removing classes: 
+
+	obj.removeClass(class_name);
+
+Example:
+
+	obj.addClass('hello'); 
+	obj.addClass('object');
+	obj.removeClass('hello');
+
 ### Using normal Javascript methods
 If you don't know, 'obj.el' is actually an object that targets to the previous object, so you can apply Javascript methods.
 

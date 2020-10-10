@@ -1,6 +1,6 @@
 {
   "name": "rottenjs",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A simple Javascript library for DOM",
   "main": "rotten.js",
   "scripts": {

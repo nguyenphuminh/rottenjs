@@ -105,6 +105,16 @@ function rotten(selector){
 		},
 		clearState: () => {
 			localStorage.removeItem(selector);
+		},
+		addClass: (value) => {
+			if (obj.el.getAttribute('class') == undefined) obj.el.setAttribute('class', '');
+			let newClass = `${obj.el.getAttribute('class')} ${value}`;
+			obj.el.setAttribute('class', newClass);
+		},
+		removeClass: (value) => {
+			if (obj.el.getAttribute('class') == undefined) return '';
+			let newClass = `${obj.el.getAttribute('class').replace(value, '')}`;
+			obj.el.setAttribute('class', newClass);
 		}
 	}
 	return obj;
