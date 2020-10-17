@@ -1,51 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script src="./js/rotten.js"></script>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
+	<link rel="stylesheet" type="text/css" href="./css/stylesheet.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-	<input/><button></button>
-	<br/>
-	<br/>
-	<div>User's input:</div>
-	<div class='user-input'></div>
-	<br/>
-	<br/>
-	<div class='box'></div>
-	<div class='text-shown'></div>
-	<script type="text/javascript" src="rotten.js"></script>
+	<script type="text/javascript" src='./js/main.js'></script>
+	<div class="content" align="center">
+		<div class="header">Todos</div>
+		<br/>
+		<br/>
+		<br/>
+		<input placeholder="Task" class='name'>
+		<button onclick='add();'>Add</button><button onclick="localStorage.removeItem('stuff');tasklist.text('');content='';">Clear</button>
+		<br/>
+		<br/>
+		<br/>
+		<div class='tasktitle'>Tasks:</div>
+		<br/>
+		<div class='task'></div>
+		<br/>
+		<br/>
+		<div>Note: Click on the task to clear it!</div>
+	</div>
+
 	<script type="text/javascript">
-		rottenUI.setTitle('Hello, World!');
+		rottenUI.setTitle('Todo App');
+		let name = rotten('.name');
+		let tasklist = rotten('.task');
+		if (localStorage.getItem('stuff') != null){
+			content = localStorage.getItem('stuff');
+		} else {
+			content='';
+		}
+		tasklist.text(content);
 
-		let obj = rotten('.text-shown');
-		obj.hide();
-		obj.text('Surprised ?');
-		obj.css('font-size', '100px');
-		obj.css('color', 'red');
-		obj.show(3000, function(){
-			console.log('The text has been shown');
-		});
-
-		let obj2 = rotten('input');
-
-		let obj3 = rotten('button');
-		let obj31 = rotten('.user-input');
-		obj3.text('Click');
-		obj3.click(function(){
-			let value=`${obj2.input()}\n`;
-			obj31.text(obj31.html()+value);
-		});
-
-		let obj4 = rotten('.box');
-
-		obj4.css('width', '100px');
-		obj4.css('height', '100px');
-		obj4.css('background-color', 'red');
-
-		obj4.hover(function(){
-			obj4.css('background-color', 'red');
-		}, function(){
-			obj4.css('background-color', 'blue');
-		});
 	</script>
 </body>
 </html>
