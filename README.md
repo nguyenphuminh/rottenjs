@@ -2,6 +2,8 @@
 	<img src='assets/logo.png'/>
 	<br/>
 	<p>A simple, light-weight (2.5kb) Javascript library for DOM</p>
+	<br/>
+	<a href="https://github.com/nguyenphuminh/rottenjs/blob/master/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-blue.svg"/></a>
 </div>
 
 ## What is RottenJS ?
