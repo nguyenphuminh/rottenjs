@@ -115,7 +115,41 @@ function rotten(selector){
 			if (obj.el.getAttribute('class') == undefined) return '';
 			let newClass = `${obj.el.getAttribute('class').replace(value, '')}`;
 			obj.el.setAttribute('class', newClass);
+		},
+		rotate: (deg,loop) => {
+			if (deg == undefined) {
+				deg = 1;
+			}
+			let rotSp=deg;
+			let rotI=0;
+			let rotCt=1;
+			if (loop.loop == true){
+				if (loop.delay == undefined) {
+					loop.delay=1;
+				}
+				obj.rot = setInterval(function(){
+					if (rotSp >= 1){
+						if (rotI >= 360) {
+							rotI=0;
+							rotCt++;
+						}
+					} else {
+						if (rotI <= -360) {
+							rotI=0;
+							rotCt++;
+						}
+					}
+					obj.el.style.transform = `rotate(${rotI}deg)`;
+					rotI+=rotSp;
+					if (rotCt == loop.count && loop.end != false) {
+						clearInterval(obj.rot);
+					};
+				},loop.delay);
+			} else {
+				obj.el.style.transform = `rotate(${rotSp}deg)`;
+			}
 		}
+
 	}
 	return obj;
 }

@@ -155,6 +155,18 @@ Example:
 	obj.addClass('object');
 	obj.removeClass('hello');
 
+### Rotate object
+Rotate object can be easily done by:
+
+	obj.rotate(deg,{
+		loop:/*true or false*/,
+		delay:/*millisecond*/,
+		count:/*number*/,
+		end:/*true or false*/,
+	});
+
+The object will be rotated by 'deg' degree after 'delay'. It will rotate 'count' times. If 'loop' is set to false, then it will only rotate 'deg' one time only. If 'end' is set to false, then it will rotates endlessly. 
+
 ### Using normal Javascript methods
 If you don't know, 'obj.el' is actually an object that targets to the previous object, so you can apply Javascript methods.
 
