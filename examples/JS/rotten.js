@@ -108,11 +108,33 @@ function rotten(selector){
 							callback();
 							break;
 						}
-					}
+					}	
 					if (denied == false) {
 						other();
 					}
 				}
+			}
+		},
+		inputs: (option,original) => {
+			let denied=false;
+			for (i=0;i<option.length;i++){
+				if (typeof(option[i].value) == 'string'){
+					if (obj.el.value == option[i].value){
+						option[i].callback();
+						denied=true;
+					}
+				} else if (typeof(option[i].value) == 'object') {
+					for (j=0;j<value.length;j++){
+						if (option[i].value[j] == obj.el.value){
+							denied=true;
+							option[i].callback();
+							break;
+						}
+					}
+				}
+			}
+			if (denied == false){
+				original();
 			}
 		},
 		val: (value) => {
