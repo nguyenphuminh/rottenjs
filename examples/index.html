@@ -7,10 +7,10 @@
 	<link rel="stylesheet" type="text/css" href="./css/stylesheet.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body style="margin:0">
 	<script type="text/javascript" src='./js/main.js'></script>
 	<div class="content" align="center">
-		<div class="header">Todos</div>
+		<div class="header"></div>
 		<br/>
 		<br/>
 		<br/>
@@ -25,6 +25,8 @@
 		<br/>
 		<br/>
 		<div>Note: Click on the task to clear it!</div>
+		<br/>
+		<p class='spin' style="position: fixed;bottom:1%;left:1%;">RJS</p>
 	</div>
 
 	<script type="text/javascript">
@@ -37,6 +39,20 @@
 			content='';
 		}
 		tasklist.html(content);
+
+		let obj=rotten('.spin');
+		obj.rotate(1,{
+			loop:true,
+			delay:1,
+			end:false
+		});
+
+		let obj2=rotten('.header');
+		obj2.typing({
+			str:'Todos',
+			speed:100,
+			clrPrev:true,
+		});
 
 	</script>
 </body>
