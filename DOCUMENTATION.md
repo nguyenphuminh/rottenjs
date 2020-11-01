@@ -33,17 +33,17 @@ JS:
 	let obj = rotten('div');
 
 ### Adding texts to the object
-You can change contents of a object by using:
+You can change text contents of a object by using:
 
 	obj.text('Hello, World!');
 
-Also, you can use Html tags too:
+Also, you can change the innerHTML property too:
 
-	obj.text('<b>Hello, World!</b>');
+	obj.html('<b>Hello, World!</b>');
 
 To change the outer content (outerHTML), use:
 
-	obj.html('<div class='Text'>Hello,World</div>')
+	obj.body('<div class='Text'>Hello,World</div>')
 
 If no value has been given, it will print out the inner/outer HTML content of the object.
 
@@ -86,6 +86,10 @@ Example:
 	obj.attr('class', 'Hello');
 
 If no value was given to the attribute, it will return the current value of the attribute instead.
+
+You can remove attributes with:
+
+	obj.removeAttr(attribute_name);
 
 ### EventListener
 You can addEventListener by using:
@@ -140,7 +144,7 @@ Example:
 		alert('You clicked me!');
 	});
 
-### Adding/Removing classes
+### Classes
 Adding classes:
 	
 	obj.addClass(class_name);
@@ -148,6 +152,14 @@ Adding classes:
 Removing classes: 
 
 	obj.removeClass(class_name);
+
+Check classes existence:
+
+	obj.hasClass(class_name);
+
+Toggle classes:
+
+	obj.toggleClass(class_name);
 
 Example:
 
@@ -167,12 +179,16 @@ Rotate object can be easily done by:
 
 The object will be rotated by 'deg' degree after 'delay'. It will rotate 'count' times. If 'loop' is set to false, then it will only rotate 'deg' one time only. If 'end' is set to false, then it will rotates endlessly. 
 
-### Using normal Javascript methods
-If you don't know, 'obj.el' is actually an object that targets to the previous object, so you can apply Javascript methods.
+### Typing animation
+Proceeding typing animations can be done with:
 
-Example:
+	obj.typing({
+		str:/*String to type*/;
+		speed:/*Typing speed - millisecond*/;
+		clrPrev:/*true or false*/;
+	});
 
-	obj.el.innerHTML = 'Hello, World!';
+Set 'clrPrev' to <b>true</b> if you want to clear the previous content before typing.
 
 ### States of object
 Save current state:
@@ -187,7 +203,32 @@ Remove saved state:
 
 	obj.removeState();
 
+### Using normal Javascript methods
+If you don't know, 'obj.el' is actually an object that targets to the previous object, so you can apply Javascript methods.
+
+Example:
+
+	obj.el.innerHTML = 'Hello, World!';
+
+### Child and Parent nodes
+
+	obj.parent() - Return the parent node
+	obj.child() - Return the child node
+
 <b>Note: All the states are stored in the 'localStorage' of the browser.</b>
+
+### Parse
+Parse HTML string:
+
+	obj.parseHTML(string);
+
+Parse JSON string:
+
+	obj.parseJSON(string);
+
+### Check if it's an array
+
+	obj.isArray(arr);
 
 
 ## Some optional functions for UI development

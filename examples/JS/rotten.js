@@ -9,6 +9,9 @@ function rotten(selector){
 				obj.el.setAttribute(attr, value);
 			}
 		},
+		removeAttr:(value) => {
+			obj.el.removeAttribute(value);
+		},
 		css: (property, value) => {
 			let new_value = `;${obj.el.getAttribute('style')};${property}:${value}`
 			obj.el.style = new_value;
@@ -46,12 +49,19 @@ function rotten(selector){
 		},
 		text: (value) => {
 			if (value == undefined){
+				return obj.el.innerText;
+			} else {
+				obj.el.innerText=value;
+			}
+		},
+		html: (value) => {
+			if (value == undefined){
 				return obj.el.innerHTML;
 			} else {
 				obj.el.innerHTML=value;
 			}
 		},
-		html: (value) => {
+		body: (value) => {
 			if (value == undefined){
 				return obj.el.outerHTML;
 			} else {
@@ -59,7 +69,7 @@ function rotten(selector){
 			}
 		},
 		on: (event, callback) => {
-			document.addEventListener(event, callback);
+			obj.el.addEventListener(event, callback);
 		},
 		append: (value) => {
 			obj.el.innerHTML=`${obj.el.innerHTML}${value}`;
@@ -107,14 +117,16 @@ function rotten(selector){
 			localStorage.removeItem(selector);
 		},
 		addClass: (value) => {
-			if (obj.el.getAttribute('class') == undefined) obj.el.setAttribute('class', '');
-			let newClass = `${obj.el.getAttribute('class')} ${value}`;
-			obj.el.setAttribute('class', newClass);
+			obj.el.classList.add(value);
 		},
 		removeClass: (value) => {
-			if (obj.el.getAttribute('class') == undefined) return '';
-			let newClass = `${obj.el.getAttribute('class').replace(value, '')}`;
-			obj.el.setAttribute('class', newClass);
+			obj.el.classList.remove(value);
+		},
+		hasClass: (value) => {
+			return obj.el.classList.contains(value);
+		},
+		toggleClass: (value) => {
+			obj.el.classList.toggle(value);
 		},
 		rotate: (deg,loop) => {
 			if (deg == undefined) {
@@ -148,8 +160,40 @@ function rotten(selector){
 			} else {
 				obj.el.style.transform = `rotate(${rotSp}deg)`;
 			}
+		},
+		parent: () => {
+			return obj.el.parentNode;
+		},
+		child: () => {
+			return obj.el.childNodes;
+		},
+		typing: (option) => {
+			let i = 0;
+			let text = option.str;
+			let speed = option.speed;
+			if (option.clrPrev == true) {
+				obj.el.innerHTML='';
+			}
+			function type() {
+				if (i < text.length) {
+					obj.el.innerHTML += text.charAt(i);
+					i++;
+					setTimeout(type, speed);
+				}
+			}
+			type();
+		},
+		isArray: (arr) => {
+			return Array.isArray(arr);
+		},
+		parseJSON: (str) => {
+			return JSON.parse(str);
+		},
+		parseHTML: (str) => {
+			var tmp = document.implementation.createHTMLDocument();
+			tmp.body.innerHTML = str;
+			return tmp.body.children;
 		}
-
 	}
 	return obj;
 }
