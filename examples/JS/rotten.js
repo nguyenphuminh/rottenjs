@@ -91,13 +91,27 @@ function rotten(selector){
 			obj.el.innerHTML='';
 		},
 		input: (value,callback,other) => {
+			let denied=false;
 			if (value == undefined && callback == undefined && other == undefined){
 				return obj.el.value;
 			} else {
-				if (value == obj.el.value){
-					callback();
-				} else {
-					other();
+				if (typeof(value) == 'string'){
+					if (value == obj.el.value){
+						callback();
+					} else {
+						other();
+					}
+				} else if (typeof(value) == 'object'){
+					for (i=0;i<value.length;i++){
+						if (value[i] == obj.el.value){
+							denied=true;
+							callback();
+							break;
+						}
+					}
+					if (denied == false) {
+						other();
+					}
 				}
 			}
 		},

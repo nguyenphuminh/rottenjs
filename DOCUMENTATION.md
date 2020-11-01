@@ -132,6 +132,11 @@ If you want to compare this input to another input to do a callback, you can use
 	obj.input(value_to_compare, callback, other);
 	//If the input is the 'value_to_compare', executes callback(), or else, executes other().
 
+To compare the input with multiple values, you can insert an array like this:
+
+	obj.input([value1,value2,value3], callback, other);
+	//If the input is 'value1','value2' or 'value3', executes callback(), or else, executes other().
+
 If you want to set the value of the input tag, you can type in:
 
 	obj.val(value);
