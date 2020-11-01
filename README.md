@@ -7,7 +7,7 @@
 </div>
 
 ## What is RottenJS ?
-RottenJS is a light-weight (2.5kb) Javascript library for DOM. It is named 'Rotten' because it is in fact kinda terrible and is not well-built at all, and just technically a clone of jQuery. But, if you are interested in experimental or open-source projects, RottenJS is a good library for you :)
+RottenJS is a light-weight (3kb) Javascript library for DOM. It is named 'Rotten' because it is in fact kinda terrible and is not well-built at all, and just technically a clone of jQuery. But, if you are interested in experimental or open-source projects, RottenJS is a good library for you :)
 
 ## Getting started
 ### Installation
