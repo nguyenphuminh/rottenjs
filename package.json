@@ -1,8 +1,11 @@
 {
   "name": "rottenjs",
-  "version": "1.0.0",
-  "description": "A simple Javascript library for DOM",
+  "version": "1.1.0",
+  "description": "A simple Javascript library for DOM and UI development",
   "main": "rotten.js",
+  "directories": {
+    "example": "examples"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,9 +14,9 @@
     "url": "git+https://github.com/nguyenphuminh/rottenjs.git"
   },
   "keywords": [
-    "javascript",
+    "javascript-framework",
     "javascript-library",
-    "javascript-framework"
+    "javascript"
   ],
   "author": "Nguyen Phu Minh",
   "license": "MIT",

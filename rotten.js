@@ -18,34 +18,41 @@ function rotten(selector){
 		},
 		hide: (time, callback) => {
 			if (time == undefined){
-				prevDisplay = obj.el.style.display;
+				time=0;
+			}
+			setTimeout(function(){
 				obj.el.style.display = 'none';
 				if (callback != undefined){
 					callback();
 				}
-			} else {
-				setTimeout(function(){
-					obj.el.style.display = 'none';
-					if (callback != undefined){
-						callback();
-					}
-				},time)
-			}
+			},time)
 		},
 		show: (time, callback) => {
 			if (time == undefined){
+				time=0;
+			}
+			setTimeout(function(){
 				obj.el.style.display = prevDisplay;
 				if (callback != undefined){
 					callback();
 				}
-			} else {
-				setTimeout(function(){
-					obj.el.style.display = prevDisplay;
-					if (callback != undefined){
-						callback();
-					}
-				},time)
+			},time)
+		},
+		fadeOut: (time,callback) => {
+			if (time == undefined) {
+				time = 0;
 			}
+			obj.el.style.opacity ='0';
+			obj.el.style.transition = `opacity ${time}ms`;
+			setTimeout(callback,time);
+		},
+		fadeIn: (time,callback) => {
+			if (time == undefined) {
+				time = 0;
+			}
+			obj.el.style.opacity = '1';
+			obj.el.style.transition = `opacity ${time}ms`;
+			setTimeout(callback,time);
 		},
 		text: (value) => {
 			if (value == undefined){
@@ -83,12 +90,14 @@ function rotten(selector){
 		empty: () => {
 			obj.el.innerHTML='';
 		},
-		input: (value,callback) => {
-			if (value == undefined && callback == undefined){
+		input: (value,callback,other) => {
+			if (value == undefined && callback == undefined && other == undefined){
 				return obj.el.value;
 			} else {
 				if (value == obj.el.value){
 					callback();
+				} else {
+					other();
 				}
 			}
 		},
@@ -165,7 +174,7 @@ function rotten(selector){
 			return obj.el.parentNode;
 		},
 		child: () => {
-			return obj.el.childNodes;
+			return obj.el.children;
 		},
 		typing: (option) => {
 			let i = 0;
@@ -193,6 +202,14 @@ function rotten(selector){
 			var tmp = document.implementation.createHTMLDocument();
 			tmp.body.innerHTML = str;
 			return tmp.body.children;
+		},
+		siblings: () => {
+			Array.prototype.filter.call(obj.el.parentNode.children, function(child){
+				return child !== obj.el;
+			});
+		},
+		now: () => {
+			return Date.now();
 		}
 	}
 	return obj;
@@ -241,5 +258,25 @@ const rottenUI = {
 				b.outerHTML = "";
 			}
 		},obj.speed);
+	}
+}
+const rotDev = {
+	mobile: (callback) => {
+		if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) callback();
+	},
+	windows: (callback) => {
+		if (navigator.appVersion.indexOf("Win") != -1) callback();
+	},
+	mac: (callback) => {
+		if (navigator.appVersion.indexOf("Mac") != -1) callback();
+	},
+	linux: (callback) => {
+		if (navigator.appVersion.indexOf("Linux") != -1) callback();
+	},
+	unix: (callback) => {
+		if (navigator.appVersion.indexOf("X11") != -1) callback();
+	},
+	os: (os,callback) => {
+		if (navigator.appVersion.indexOf(os) != -1) callback();
 	}
 }

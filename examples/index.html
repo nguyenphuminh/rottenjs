@@ -30,6 +30,10 @@
 	</div>
 
 	<script type="text/javascript">
+		rotDev.mobile(function(){
+			alert('You are using this on a mobile device!');
+		});
+
 		rottenUI.setTitle('Todo App');
 		let name = rotten('.name');
 		let tasklist = rotten('.task');
@@ -53,6 +57,7 @@
 			speed:100,
 			clrPrev:true,
 		});
+
 
 	</script>
 </body>

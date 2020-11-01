@@ -125,12 +125,15 @@ Taking input can be done by:
 
 If you want to compare this input to another input to do a callback, you can use:
 
-	obj.input(value_to_compare, callback);
+	obj.input(value_to_compare, callback, other);
+	//If the input is the 'value_to_compare', executes callback(), or else, executes other().
 
 Example:
 
 	obj.input('Hello', function(){
 		alert('Have a good day');
+	},function(){
+		alert('...');
 	});
 
 ### Click event
@@ -203,17 +206,30 @@ Remove saved state:
 
 	obj.removeState();
 
+### Siblings
+
+	obj.siblings();
+
+### Return current time
+
+	obj.now();
+
+### Fade in and fade out animation
+
+	obj.fadeIn(time,callback);
+	obj.fadeOut(time,callback);
+
+### Child and Parent nodes
+
+	obj.parent() - Return the parent node
+	obj.child() - Return the child node
+
 ### Using normal Javascript methods
 If you don't know, 'obj.el' is actually an object that targets to the previous object, so you can apply Javascript methods.
 
 Example:
 
 	obj.el.innerHTML = 'Hello, World!';
-
-### Child and Parent nodes
-
-	obj.parent() - Return the parent node
-	obj.child() - Return the child node
 
 <b>Note: All the states are stored in the 'localStorage' of the browser.</b>
 
@@ -231,9 +247,7 @@ Parse JSON string:
 	obj.isArray(arr);
 
 
-## Some optional functions for UI development
-
-You would need to use a new module called 'rottenUI'.
+## Develop UI using rottenUI
 
 ### Add a background video
 
@@ -262,4 +276,25 @@ You would need to use a new module called 'rottenUI'.
 		size:/*Size*/,
 		speed:/*Millisecond*/,
 		position:/*CSS Position*/
+	});
+
+## Device detections using rotDev
+
+	rotDev.mobile(function(){
+		//Execute if the user is using a mobile devive
+	});
+	rotDev.windows(function(){
+		//Execute if the user is using a Windows devive
+	});
+	rotDev.mac(function(){
+		//Execute if the user is using a Mac devive
+	});
+	rotDev.linux(function(){
+		//Execute if the user is using a Linux devive
+	});
+	rotDev.unix(function(){
+		//Execute if the user is using a Unix devive
+	});
+	rotDev.os(os_name,function(){
+		//Execute if the user is using a the option "os_name" device
 	});
