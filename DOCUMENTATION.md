@@ -149,7 +149,7 @@ To compare the input with multiple values, each having different callbacks, do t
 			callback:callback2,
 		},
 		{
-			value:[value3_1,value3_2,value3_3].
+			value:[value3_1,value3_2,value3_3],
 			callback:callback3,
 		}
 	],original);
