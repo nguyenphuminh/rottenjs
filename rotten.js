@@ -101,6 +101,13 @@ function rotten(selector){
 				}
 			}
 		},
+		val: (value) => {
+			if (value == undefined) {
+				return obj.el.value;
+			} else {
+				obj.el.value = value;
+			}
+		},
 		click: (callback) => {
 			if (callback == undefined) return null;
 			obj.el.onclick = function(){

@@ -123,17 +123,25 @@ Taking input can be done by:
 
 	obj.input(); //Would return the input of the HTML input form
 
+Or you can use:
+
+	obj.val(); //Would return the input of the HTML input form
+
 If you want to compare this input to another input to do a callback, you can use:
 
 	obj.input(value_to_compare, callback, other);
 	//If the input is the 'value_to_compare', executes callback(), or else, executes other().
+
+If you want to set the value of the input tag, you can type in:
+
+	obj.val(value);
 
 Example:
 
 	obj.input('Hello', function(){
 		alert('Have a good day');
 	},function(){
-		alert('...');
+		obj.val('Hello');
 	});
 
 ### Click event
