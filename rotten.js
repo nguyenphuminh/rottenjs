@@ -226,14 +226,31 @@ function rotten(selector){
 			if (option.clrPrev == true) {
 				obj.el.innerHTML='';
 			}
-			function type() {
-				if (i < text.length) {
-					obj.el.innerHTML += text.charAt(i);
-					i++;
-					setTimeout(type, speed);
+			if (option.loop == true) {
+				if (option.delay == undefined) option.delay=1000;
+				function type() {
+					if (i < text.length) {
+						obj.el.innerHTML += text.charAt(i);
+						i++;
+						setTimeout(type, speed);
+					}
 				}
+				type();
+				setInterval(function(){
+					i = 0;
+					obj.el.innerHTML='';
+					type();
+				},speed*text.length+option.delay);
+			} else {
+				function type() {
+					if (i < text.length) {
+						obj.el.innerHTML += text.charAt(i);
+						i++;
+						setTimeout(type, speed);
+					}
+				}
+				type();
 			}
-			type();
 		},
 		isArray: (arr) => {
 			return Array.isArray(arr);

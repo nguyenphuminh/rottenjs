@@ -218,12 +218,14 @@ The object will be rotated by 'deg' degree after 'delay'. It will rotate 'count'
 Proceeding typing animations can be done with:
 
 	obj.typing({
-		str:/*String to type*/;
-		speed:/*Typing speed - millisecond*/;
-		clrPrev:/*true or false*/;
+		str:/*String to type*/,
+		speed:/*Typing speed - millisecond*/,
+		clrPrev:/*true or false*/,
+		loop:/*true or false*/,
+		delay:/*true or false*/
 	});
 
-Set 'clrPrev' to <b>true</b> if you want to clear the previous content before typing.
+Set 'clrPrev' to <b>true</b> if you want to clear the previous content before typing. If you set 'loop' to true, then it will write the string endlessly after 'delay' millisecond(s).
 
 ### States of object
 Save current state:
