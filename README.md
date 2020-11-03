@@ -7,7 +7,7 @@
 </div>
 
 ## What is RottenJS ?
-RottenJS is a light-weight (3kb) Javascript library for DOM. It is named 'Rotten' because it is in fact kinda terrible and is not well-built at all, and just technically a clone of jQuery. But, if you are interested in experimental or open-source projects, RottenJS is a good library for you :)
+RottenJS is a light-weight Javascript library for DOM manipulation and UI development. It is named 'Rotten' because it is not that sustainable and it is not well-built at all. Having to contain features that are old-school or outdated from old libraries/frameworks like Backbone or jQuery, RottenJS doesn't actually have a real use case. But, if you are interested in experimental or open-source projects, or a library that is lightweight and decent enough for small projects, RottenJS is a good library for you!
 
 ## Getting started
 ### Installation
@@ -19,10 +19,18 @@ Or install it in npm:
 
 	npm i rottenjs
 
+Or you can just pull it from unpkg.com by adding this to your .html file:
+
+	<script src="https://unpkg.com/rottenjs@1.1.5/rotten.min.js"></script>
+
 ### Add RottenJS to your project
 Add this tag to the 'head' tag of your .html files:
 
 	<script src='rotten.min.js' type='text/javascript'></script>
+
+Again, you can add this block of code rather than the one above:
+
+	<script src="https://unpkg.com/rottenjs@1.1.5/rotten.min.js"></script>
 
 ### [Functions and methods](DOCUMENTATION.md)
 
