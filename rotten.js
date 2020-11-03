@@ -169,11 +169,16 @@ function rotten(selector){
 				obj.el.title = value;
 			}
 		},
-		newEl: (tag,content) => {
+		newEl: (tag,content,pos) => {
+			if (pos == undefined) pos = 'front';
 			if (tag != undefined && content != undefined){
 				let nel = document.createElement(tag);
 				nel.innerHTML = content;
-				obj.el.appendChild(nel);
+				if (pos == 'front') {
+					obj.el.append(nel);
+				} else if (pos == 'back'){
+					obj.el.prepend(nel);
+				}
 			}
 		},
 		saveState: () => {

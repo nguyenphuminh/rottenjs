@@ -206,13 +206,17 @@ Example:
 	obj.addClass('object');
 	obj.removeClass('hello');
 
-### Append HTML element into the parent node
+### Create new child element
 
 	obj.newEl(tag_name,HTML_content);
 
 Example:
 
 	obj.newEl('p','Hello guys'); //Append <p>Hello guys</p> to the parent node.
+
+Prepend:
+
+	obj.newEl('p','Hello guys','back'); //Prepend <p>Hello guys</p> to the parent node.
 
 ### Element's title
 Return element's title attribute:

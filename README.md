@@ -21,7 +21,7 @@ Or install it in npm:
 
 Or you can just pull it from unpkg.com by adding this to your .html file:
 
-	<script src="https://unpkg.com/rottenjs@1.1.5/rotten.min.js"></script>
+	<script src="https://unpkg.com/rottenjs@1.1.6/rotten.min.js"></script>
 
 ### Add RottenJS to your project
 Add this tag to the 'head' tag of your .html files:
@@ -30,7 +30,7 @@ Add this tag to the 'head' tag of your .html files:
 
 Again, you can add this block of code rather than the one above:
 
-	<script src="https://unpkg.com/rottenjs@1.1.5/rotten.min.js"></script>
+	<script src="https://unpkg.com/rottenjs@1.1.6/rotten.min.js"></script>
 
 ### [Functions and methods](DOCUMENTATION.md)
 
