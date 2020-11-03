@@ -78,6 +78,9 @@ function rotten(selector){
 		on: (event, callback) => {
 			obj.el.addEventListener(event, callback);
 		},
+		off: (event, callback) => {
+			obj.el.removeEventListener(event, callback);
+		},
 		append: (value) => {
 			obj.el.innerHTML=`${obj.el.innerHTML}${value}`;
 		},
@@ -157,6 +160,20 @@ function rotten(selector){
 			}
 			obj.el.onmouseenter = function(){
 				onhover();
+			}
+		},
+		title: (value) => {
+			if (title == undefined) {
+				return obj.el.title;
+			} else {
+				obj.el.title = value;
+			}
+		},
+		newEl: (tag,content) => {
+			if (tag != undefined && content != undefined){
+				let nel = document.createElement(tag);
+				nel.innerHTML = content;
+				obj.el.appendChild(nel);
 			}
 		},
 		saveState: () => {

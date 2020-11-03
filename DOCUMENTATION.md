@@ -91,10 +91,14 @@ You can remove attributes with:
 
 	obj.removeAttr(attribute_name);
 
-### EventListener
-You can addEventListener by using:
+### Events
+You can add an event by using:
 
-	obj.on(event,callback)
+	obj.on(event,eventHandler)
+
+Remove an event can be done by:
+
+	obj.off(event,eventHandler)
 
 ### Remove elements of an object
 You can remove all the child elements of an object using:
@@ -201,6 +205,23 @@ Example:
 	obj.addClass('hello'); 
 	obj.addClass('object');
 	obj.removeClass('hello');
+
+### Append HTML element into the parent node
+
+	obj.newEl(tag_name,HTML_content);
+
+Example:
+
+	obj.newEl('p','Hello guys'); //Append <p>Hello guys</p> to the parent node.
+
+### Element's title
+Return element's title attribute:
+
+	obj.title();
+
+Change element's title attribute:
+
+	obj.title(content);
 
 ### Rotate object
 Rotate object can be easily done by:
