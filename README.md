@@ -46,7 +46,7 @@ Again, you can add this block of code rather than the one above:
 
 ## Comparision with other libraries/frameworks
 ### Vue, React & Angular
-Vue, React, Angular, <span style="text-decoration: line-through">AngularJS</span> have way better usablities and capabilities then RottenJS. They far outweight RottenJS in any use cases.
+Vue, React, Angular, <i>AngularJS</i> have way better usablities and capabilities then RottenJS. They far outweight RottenJS in any use cases.
 
 ### Backbone, jQuery
 RottenJS shares similarities with two of those libraries, though unlike jQuery, RottenJS only targets one element through one selector, whereas in jQuery, you can targets many elements.
