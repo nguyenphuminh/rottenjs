@@ -34,6 +34,28 @@ Again, you can add this block of code rather than the one above:
 
 ### [Functions and methods](DOCUMENTATION.md)
 
+## Pros and Cons
+### Pros
+<li>Extremely lightweight.</li>
+<li>Prebuilt with decent modules.</li>
+
+### Cons
+<li>Not suitable for large projects.</li>
+<li>Outdated.</li>
+<li>Small community.</li>
+
+## Comparision with other libraries/frameworks
+### Vue, React & Angular
+Vue, React, Angular, <span style="text-decoration: line-through">AngularJS</span> have way better usablities and capabilities then RottenJS. They far outweight RottenJS in any use cases.
+
+### Backbone, jQuery
+RottenJS shares similarities with two of those libraries, though unlike jQuery, RottenJS only targets one element through one selector, whereas in jQuery, you can targets many elements.
+
+Backbone and jQuery are some what better than RottenJS, but RottenJS is way more lighter and is prebuilt with modules like rottenUI and rotDev which improves your development experiences and it is suitable for small or medium-scale projects.
+
+### Redom
+Redom and RottenJS are both very lightweight libraries. But Redom is suitable for modern projects, whereas RottenJS is good for small projects that needs DOM handling and manipulations.
+
 ## Copyrights and License
 Copyrights © 2020 Nguyen Phu Minh
 
