@@ -30,13 +30,13 @@
 	</div>
 
 	<script type="text/javascript">
-		rotDev.mobile(function(){
+		rDev.mobile(function(){
 			alert('You are using this on a mobile device!');
 		});
 
-		rottenUI.setTitle('Todo App');
-		let name = rotten('.name');
-		let tasklist = rotten('.task');
+		rUI.setTitle('Todo App');
+		let name = rt('.name');
+		let tasklist = rt('.task');
 		if (localStorage.getItem('stuff') != null){
 			content = localStorage.getItem('stuff');
 		} else {
@@ -44,14 +44,14 @@
 		}
 		tasklist.html(content);
 
-		let obj=rotten('.spin');
+		let obj=rt('.spin');
 		obj.rotate(1,{
 			loop:true,
 			delay:1,
 			end:false
 		});
 
-		let obj2=rotten('.header');
+		let obj2=rt('.header');
 		obj2.typing({
 			str:'Todos',
 			speed:100,

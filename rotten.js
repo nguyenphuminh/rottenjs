@@ -333,6 +333,7 @@ function rotten(selector){
 	}
 	return obj;
 }
+const rt = (selector) => rotten(selector);
 const rottenUI = {
 	setBGVideo: function (obj){
 		let a = document.querySelector("body");
@@ -379,6 +380,7 @@ const rottenUI = {
 		},obj.speed);
 	}
 }
+const rUI = rottenUI;
 const rotDev = {
 	mobile: (callback) => {
 		if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) callback();
@@ -399,3 +401,4 @@ const rotDev = {
 		if (navigator.appVersion.indexOf(os) != -1) callback();
 	}
 }
+const rDev = rotDev;
