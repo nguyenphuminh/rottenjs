@@ -1,7 +1,7 @@
 <div align="center">
 	<img src='assets/logo.png'/>
 	<br/>
-	<p>A simple, light-weight (2kb) Javascript library for DOM</p>
+	<p>A simple, light-weight (5kb) Javascript library for DOM</p>
 </div>
 
 ## Getting started
@@ -90,6 +90,26 @@ If no value was given to the attribute, it will return the current value of the 
 You can remove attributes with:
 
 	obj.removeAttr(attribute_name);
+
+### Working with styles and CSS
+You can easily change css property of an object using:
+
+	obj.css(property,value);
+
+Example:
+
+	obj.css('font-size', '100px');
+
+You can change the whole css style of an object:
+
+	obj.style(value);
+
+Example:
+
+	obj.style(`
+		font-size:20px;
+		font-family:Arial;
+	`);
 
 ### Events
 You can add an event by using:
