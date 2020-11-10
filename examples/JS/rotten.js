@@ -147,6 +147,36 @@ function rotten(selector){
 				obj.el.value = value;
 			}
 		},
+		check: (checked,unchecked) => {
+			if (checked != undefined && unchecked != undefined){
+				if (obj.el.checked == true){
+					checked();
+				} else {
+					unchecked();
+				}
+			}
+		},
+		applyEl: (target,callback) => {
+			if (target != undefined){
+				setInterval(function(){
+					document.querySelector(target).innerHTML = obj.el.value;
+					if (callback != undefined){
+						callback();
+					}
+				},1);
+			}
+		},
+		aplCheckEl: (checked, unchecked) => {
+			if (checked != undefined && unchecked != undefined){
+				setInterval(function(){
+					if (obj.el.checked == true){
+						checked();
+					} else {
+						unchecked();
+					}
+				},1);
+			}
+		},
 		click: (callback) => {
 			if (callback == undefined) return null;
 			obj.el.onclick = function(){

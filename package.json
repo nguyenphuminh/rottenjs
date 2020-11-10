@@ -1,6 +1,6 @@
 {
   "name": "rottenjs",
-  "version": "1.1.6",
+  "version": "1.2.0",
   "description": "A simple Javascript library for DOM and UI development",
   "main": "rotten.min.js",
   "directories": {
