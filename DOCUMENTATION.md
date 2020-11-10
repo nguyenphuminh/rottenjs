@@ -395,3 +395,20 @@ Parse JSON string:
 	rotDev.os(os_name,function(){
 		//Execute if the user is using a the option "os_name" device
 	});
+
+## Shorter RottenJS
+
+	// let obj = rotten('div');
+	let obj = rt('');
+
+	// rottenUI.setTitle('Rotten App');
+	rUI.setTitle('Rotten App');
+
+	/* 
+	rotDev.mobile(function(){
+		alert('This is a mobile device!');
+	});
+	*/
+	rDev.mobile(function(){
+		alert('This is a mobile device!');
+	});
