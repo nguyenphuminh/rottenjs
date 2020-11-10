@@ -16,6 +16,13 @@ function rotten(selector){
 			let new_value = `;${obj.el.getAttribute('style')};${property}:${value}`
 			obj.el.style = new_value;
 		},
+		style: (value) => {
+			if (value == undefined){
+				return obj.el.getAttribute('style');
+			} else {
+				obj.el.setAttribute('style', value);
+			}
+		},
 		hide: (time, callback) => {
 			if (time == undefined){
 				time=0;
