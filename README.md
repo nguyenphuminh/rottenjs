@@ -1,7 +1,7 @@
 <div align="center">
 	<img src='assets/logo.png'/>
 	<br/>
-	<p>A simple, light-weight (3kb) Javascript library for DOM manipulation and UI development</p>
+	<p>A simple, light-weight (5kb) Javascript library for DOM manipulation and UI development</p>
 	<br/>
 	<a href="https://github.com/nguyenphuminh/rottenjs/blob/master/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-orange.svg"/></a>
 	<a href="https://npmcharts.com/compare/rottenjs?minimal=true"><img src="https://img.shields.io/npm/dm/rottenjs.svg?sanitize=true" alt="Downloads"></a>

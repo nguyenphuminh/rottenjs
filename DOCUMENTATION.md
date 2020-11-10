@@ -172,6 +172,24 @@ Example:
 		obj.val('Hello');
 	});
 
+### HTML form checkbox
+
+	// If checked, then executes checked()
+	// If not checked, then executes unchecked()
+	obj.check(checked,unchecked);
+
+### Two ways binding in HTML form (sort of)
+Binding with inputs:
+	
+	// Every times data changes, it will be inserted to 'target' and callback() will be executed.
+	obj.applyEl(target,callback);
+
+Binding with checkboxs:
+
+	// If checked, then executes checked().
+	// If not checked, then executes unchecked().
+	obj.aplCheckEl(checked,unchecked);
+
 ### Click event
 You can add a click event for an object through:
 
@@ -311,9 +329,9 @@ Parse JSON string:
 ### Add a background video
 
 	rottenUI.setBGVideo({
-		path:/*Video file's path*/;
-		type:/*File type(mp4,mov)*/;
-		style:/*Optional style*/;
+		path:/*Video file's path*/,
+		type:/*File type(mp4,mov)*/,
+		style:/*Optional style*/,
 	});
 
 ### Add a background image
