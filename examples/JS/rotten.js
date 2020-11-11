@@ -1,45 +1,60 @@
 function rotten(selector){
 	let prevDisplay='';
 	const obj = {
-		el: document.querySelector(selector),
+		el: document.querySelectorAll(selector),
 		attr: (attr, value) => {
-			if (value == undefined){
-				return obj.el.getAttribute(attr);
-			} else {
-				obj.el.setAttribute(attr, value);
+			for (i=0;i<obj.el.length;i++){
+				if (value == undefined){
+					return obj.el[0].getAttribute(attr);
+				} else {
+					obj.el[i].setAttribute(attr, value);
+				}
 			}
 		},
 		removeAttr:(value) => {
-			obj.el.removeAttribute(value);
+			for (i=0;i<obj.el.length;i++){
+				obj.el[i].removeAttribute(value);
+			}
 		},
 		css: (property, value) => {
-			let new_value = `;${obj.el.getAttribute('style')};${property}:${value}`
-			obj.el.style = new_value;
+			for (i=0;i<obj.el.length;i++){
+				if (obj.el[i].getAttribute('style') == null){
+					obj.el[i].setAttribute('style', '');
+				}
+				let new_value = `;${obj.el[i].getAttribute('style')};${property}:${value}`
+				obj.el[i].setAttribute('style', new_value);
+			}
 		},
 		style: (value) => {
-			if (value == undefined){
-				return obj.el.getAttribute('style');
-			} else {
-				obj.el.setAttribute('style', value);
+			for (i=0;i<obj.el.length;i++){
+				if (value == undefined){
+					return obj.el[0].getAttribute('style');
+				} else {
+					obj.el[i].setAttribute('style', value);
+				}
 			}
 		},
 		hide: (time, callback) => {
-			if (time == undefined){
-				time=0;
-			}
-			setTimeout(function(){
-				obj.el.style.display = 'none';
-				if (callback != undefined){
-					callback();
+				if (time == undefined){
+					time=0;
 				}
-			},time)
+				setTimeout(function(){
+					for (i=0;i<obj.el.length;i++){
+						obj.el[i].style.display = 'none';
+					}
+					if (callback != undefined){
+						callback();
+					}
+				},time)
 		},
 		show: (time, callback) => {
 			if (time == undefined){
 				time=0;
 			}
 			setTimeout(function(){
-				obj.el.style.display = prevDisplay;
+				for (i=0;i<obj.el.length;i++){
+					obj.el[i].style.display = prevDisplay;
+				}
 				if (callback != undefined){
 					callback();
 				}
@@ -49,71 +64,93 @@ function rotten(selector){
 			if (time == undefined) {
 				time = 0;
 			}
-			obj.el.style.opacity ='0';
-			obj.el.style.transition = `opacity ${time}ms`;
+			for (i=0;i<obj.el.length;i++){
+				obj.el[i].style.opacity ='0';
+				obj.el[i].style.transition = `opacity ${time}ms`;
+			}
 			setTimeout(callback,time);
 		},
 		fadeIn: (time,callback) => {
 			if (time == undefined) {
 				time = 0;
 			}
-			obj.el.style.opacity = '1';
-			obj.el.style.transition = `opacity ${time}ms`;
+			for (i=0;i<obj.el.length;i++){
+				obj.el[i].style.opacity = '1';
+				obj.el[i].style.transition = `opacity ${time}ms`;
+			}
 			setTimeout(callback,time);
 		},
 		text: (value) => {
-			if (value == undefined){
-				return obj.el.innerText;
-			} else {
-				obj.el.innerText=value;
+			for (i=0;i<obj.el.length;i++){
+				if (value == undefined){
+					return obj.el[0].innerText;
+				} else {
+					obj.el[i].innerText=value;
+				}
 			}
 		},
 		html: (value) => {
-			if (value == undefined){
-				return obj.el.innerHTML;
-			} else {
-				obj.el.innerHTML=value;
+			for (i=0;i<obj.el.length;i++){
+				if (value == undefined){
+					return obj.el[0].innerHTML;
+				} else {
+					obj.el[i].innerHTML=value;
+				}
 			}
 		},
 		body: (value) => {
-			if (value == undefined){
-				return obj.el.outerHTML;
-			} else {
-				obj.el.outerHTML=value;
+			for (i=0;i<obj.el.length;i++){
+				if (value == undefined){
+					return obj.el[0].outerHTML;
+				} else {
+					obj.el[i].outerHTML=value;
+				}
 			}
 		},
 		on: (event, callback) => {
-			obj.el.addEventListener(event, callback);
+			for (i=0;i<obj.el.length;i++){
+				obj.el[i].addEventListener(event, callback);
+			}
 		},
 		off: (event, callback) => {
-			obj.el.removeEventListener(event, callback);
+			for (i=0;i<obj.el.length;i++){
+				obj.el[i].removeEventListener(event, callback);
+			}
 		},
 		append: (value) => {
-			obj.el.innerHTML=`${obj.el.innerHTML}${value}`;
+			for (i=0;i<obj.el.length;i++){
+				obj.el[i].innerHTML=`${obj.el[i].innerHTML}${value}`;
+			}
 		},
 		prepend: (value) => {
-			obj.el.innerHTML=`${value}${obj.el.innerHTML}`;
+			for (i=0;i<obj.el.length;i++){
+				obj.el[i].innerHTML=`${value}${obj.el[i].innerHTML}`;
+			}
 		},
 		remove: () => {
-			obj.el.outerHTML='';
+			for (i=0;i<obj.el.length;i++){
+				obj.el[i].outerHTML='';
+			}
 		},
 		empty: () => {
-			obj.el.innerHTML='';
+			for (i=0;i<obj.el.length;i++){
+				obj.el[i].innerHTML='';
+			}
 		},
 		input: (value,callback,other) => {
 			let denied=false;
 			if (value == undefined && callback == undefined && other == undefined){
-				return obj.el.value;
+				return obj.el[0].value;
 			} else {
 				if (typeof(value) == 'string'){
-					if (value == obj.el.value){
+					if (value == obj.el[0].value){
 						callback();
 					} else {
 						other();
 					}
 				} else if (typeof(value) == 'object'){
 					for (i=0;i<value.length;i++){
-						if (value[i] == obj.el.value){
+						if (value[i] == obj.el[0].value){
 							denied=true;
 							callback();
 							break;
@@ -129,13 +166,13 @@ function rotten(selector){
 			let denied=false;
 			for (i=0;i<option.length;i++){
 				if (typeof(option[i].value) == 'string'){
-					if (obj.el.value == option[i].value){
+					if (obj.el[0].value == option[i].value){
 						option[i].callback();
 						denied=true;
 					}
 				} else if (typeof(option[i].value) == 'object') {
 					for (j=0;j<value.length;j++){
-						if (option[i].value[j] == obj.el.value){
+						if (option[i].value[j] == obj.el[0].value){
 							denied=true;
 							option[i].callback();
 							break;
@@ -143,20 +180,20 @@ function rotten(selector){
 					}
 				}
 			}
-			if (denied == false){
+			if (denied == false && original != undefined){
 				original();
 			}
 		},
 		val: (value) => {
 			if (value == undefined) {
-				return obj.el.value;
+				return obj.el[0].value;
 			} else {
-				obj.el.value = value;
+				obj.el[0].value = value;
 			}
 		},
 		check: (checked,unchecked) => {
 			if (checked != undefined && unchecked != undefined){
-				if (obj.el.checked == true){
+				if (obj.el[0].checked == true){
 					checked();
 				} else {
 					unchecked();
@@ -166,7 +203,7 @@ function rotten(selector){
 		applyEl: (target,callback) => {
 			if (target != undefined){
 				setInterval(function(){
-					document.querySelector(target).innerHTML = obj.el.value;
+					document.querySelector(target).innerHTML = obj.el[0].value;
 					if (callback != undefined){
 						callback();
 					}
@@ -176,7 +213,7 @@ function rotten(selector){
 		aplCheckEl: (checked, unchecked) => {
 			if (checked != undefined && unchecked != undefined){
 				setInterval(function(){
-					if (obj.el.checked == true){
+					if (obj.el[0].checked == true){
 						checked();
 					} else {
 						unchecked();
@@ -186,58 +223,77 @@ function rotten(selector){
 		},
 		click: (callback) => {
 			if (callback == undefined) return null;
-			obj.el.onclick = function(){
-				callback();
+			for (i=0;i<obj.el.length;i++){
+				obj.el[i].onclick = function(){
+					callback();
+				}
 			}
 		},
 		hover: (outhover, onhover) => {
 			if (outhover == undefined && onhover == undefined) return null;
-			obj.el.onmouseleave = function(){
-				outhover();
-			}
-			obj.el.onmouseenter = function(){
-				onhover();
+			for (i=0;i<obj.el.length;i++){
+				obj.el[i].onmouseleave = function(){
+					outhover();
+				}
+				obj.el[i].onmouseenter = function(){
+					onhover();
+				}
 			}
 		},
 		title: (value) => {
-			if (title == undefined) {
-				return obj.el.title;
-			} else {
-				obj.el.title = value;
+			for (i=0;i<obj.el.length;i++){
+				if (title == undefined) {
+					return obj.el[0].title;
+				} else {
+					obj.el[i].title = value;
+				}
 			}
 		},
 		newEl: (tag,content,pos) => {
 			if (pos == undefined) pos = 'front';
 			if (tag != undefined && content != undefined){
-				let nel = document.createElement(tag);
-				nel.innerHTML = content;
+				let nel;
 				if (pos == 'front') {
-					obj.el.append(nel);
+					for (i=0;i<obj.el.length;i++){
+						nel = document.createElement(tag);
+						nel.innerHTML = content;
+						obj.el[i].append(nel);
+					}
 				} else if (pos == 'back'){
-					obj.el.prepend(nel);
+					for (i=0;i<obj.el.length;i++){
+						nel = document.createElement(tag);
+						nel.innerHTML = content;
+						obj.el[i].prepend(nel);
+					}
 				}
 			}
 		},
 		saveState: () => {
-			localStorage.setItem(selector, obj.el.innerHTML);
+			localStorage.setItem(selector, obj.el[0].innerHTML);
 		},
 		loadState: () => {
-			obj.el.innerHTML = localStorage.getItem(selector);
+			obj.el[0].innerHTML = localStorage.getItem(selector);
 		},
 		clearState: () => {
 			localStorage.removeItem(selector);
 		},
 		addClass: (value) => {
-			obj.el.classList.add(value);
+			for (i=0;i<obj.el.length;i++){
+				obj.el[i].classList.add(value);
+			}
 		},
 		removeClass: (value) => {
-			obj.el.classList.remove(value);
+			for (i=0;i<obj.el.length;i++){
+				obj.el[i].classList.remove(value);
+			}
 		},
 		hasClass: (value) => {
-			return obj.el.classList.contains(value);
+			return obj.el[0].classList.contains(value);
 		},
 		toggleClass: (value) => {
-			obj.el.classList.toggle(value);
+			for (i=0;i<obj.el.length;i++){
+				obj.el[i].classList.toggle(value);
+			}
 		},
 		rotate: (deg,loop) => {
 			if (deg == undefined) {
@@ -262,34 +318,34 @@ function rotten(selector){
 							rotCt++;
 						}
 					}
-					obj.el.style.transform = `rotate(${rotI}deg)`;
+					obj.el[0].style.transform = `rotate(${rotI}deg)`;
 					rotI+=rotSp;
 					if (rotCt == loop.count && loop.end != false) {
 						clearInterval(obj.rot);
 					};
 				},loop.delay);
 			} else {
-				obj.el.style.transform = `rotate(${rotSp}deg)`;
+				obj.el[0].style.transform = `rotate(${rotSp}deg)`;
 			}
 		},
 		parent: () => {
-			return obj.el.parentNode;
+			return obj.el[0].parentNode;
 		},
 		child: () => {
-			return obj.el.children;
+			return obj.el[0].children;
 		},
 		typing: (option) => {
 			let i = 0;
 			let text = option.str;
 			let speed = option.speed;
 			if (option.clrPrev == true) {
-				obj.el.innerHTML='';
+				obj.el[0].innerHTML='';
 			}
 			if (option.loop == true) {
 				if (option.delay == undefined) option.delay=1000;
 				function type() {
 					if (i < text.length) {
-						obj.el.innerHTML += text.charAt(i);
+						obj.el[0].innerHTML += text.charAt(i);
 						i++;
 						setTimeout(type, speed);
 					}
@@ -297,13 +353,13 @@ function rotten(selector){
 				type();
 				setInterval(function(){
 					i = 0;
-					obj.el.innerHTML='';
+					obj.el[0].innerHTML='';
 					type();
 				},speed*text.length+option.delay);
 			} else {
 				function type() {
 					if (i < text.length) {
-						obj.el.innerHTML += text.charAt(i);
+						obj.el[0].innerHTML += text.charAt(i);
 						i++;
 						setTimeout(type, speed);
 					}
@@ -323,8 +379,8 @@ function rotten(selector){
 			return tmp.body.children;
 		},
 		siblings: () => {
-			Array.prototype.filter.call(obj.el.parentNode.children, function(child){
-				return child !== obj.el;
+			Array.prototype.filter.call(obj.el[0].parentNode.children, function(child){
+				return child !== obj.el[0];
 			});
 		},
 		now: () => {
