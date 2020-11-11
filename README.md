@@ -60,6 +60,10 @@ Backbone and jQuery are some what better than RottenJS, but RottenJS is way more
 ### Redom
 Redom and RottenJS are both very lightweight libraries. But Redom is suitable for modern projects, whereas RottenJS is good for small projects that needs DOM handling and manipulations.
 
+## Social medias
+<li href="https://youtu.be/HgabIAgfURo">Youtube</li>
+<li href="https://www.facebook.com/Rottenjs-The-Javascript-Library-112227464032668">Facebook</li>
+
 ## Copyrights and License
 Copyrights © 2020 Nguyen Phu Minh
 
