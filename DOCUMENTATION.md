@@ -322,11 +322,19 @@ Remove saved state:
 	obj.child() - Return the child node
 
 ### Using normal Javascript methods
-If you don't know, 'obj.el' is actually an object that targets to the previous object, so you can apply Javascript methods.
+If you don't know, 'obj.el' is actually an array of DOM elements that targets to the previous object, so you can apply Javascript methods.
 
 Example:
 
-	obj.el.innerHTML = 'Hello, World!';
+	// Change the innerHTML of the first elements that it meets
+	obj.el[0].innerHTML = 'Hello, World!';
+
+	// Change all the innerHTML of all the elements that it meets
+	for (i=0;i<obj.el.length;i++) {
+		obj.el[i].innerHTML = "Hello, World!";
+	}
+
+In 1.2.x, 'obj.el' is just a variable that holds a single DOM element, but in 1.3.x, it is now an array containing multiple DOM elements that it founds.
 
 <b>Note: All the states are stored in the 'localStorage' of the browser.</b>
 
