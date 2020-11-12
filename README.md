@@ -11,7 +11,7 @@
 </div>
 
 ## What is RottenJS ?
-RottenJS is a light-weight Javascript library for DOM manipulation and UI development. It is named 'Rotten' because it is not that sustainable and it is not well-built at all. Having to contain features that are old-school or outdated from old libraries/frameworks like Backbone or jQuery, RottenJS doesn't actually have a real use case. But, if you are interested in experimental or open-source projects, or a library that is lightweight and decent enough for small projects, RottenJS is a good library for you!
+RottenJS is a light-weight Javascript library for DOM manipulation and UI development. It is extremely fast and verbose, and having to only weighs 5kb, it is suitable for projects at all sizes. Also, if you are interested in experimental or open-source projects, RottenJS might be a great choice for you!
 
 ## Getting started
 ### Installation
@@ -40,25 +40,22 @@ Again, you can add this block of code rather than the one above:
 
 ## Pros and Cons
 ### Pros
-<li>Extremely lightweight.</li>
+<li>Extremely lightweigh and fast.</li>
 <li>Prebuilt with decent modules.</li>
 
 ### Cons
-<li>Not suitable for large projects.</li>
-<li>Outdated.</li>
 <li>Small community.</li>
+<li>Maintained by only one person.</li>
 
 ## Comparision with other libraries/frameworks
 ### Vue, React & Angular
-Vue, React, Angular, <i>AngularJS</i> have way better usablities and capabilities then RottenJS. They far outweight RottenJS in any use cases.
+Vue, React, Angular, <i>AngularJS</i> might have better usablities and capabilities than RottenJS. They outweights RottenJS when talking about features and community.
 
-### Backbone, jQuery
-RottenJS shares similarities with two of those libraries, though unlike jQuery, RottenJS only targets one element through one selector, whereas in jQuery, you can targets many elements.
-
-Backbone and jQuery are some what better than RottenJS, but RottenJS is way more lighter and is prebuilt with modules like rottenUI and rotDev which improves your development experiences and it is suitable for small or medium-scale projects.
+### Backbone, jQuery, UmbrellaJS
+RottenJS shares similarities with three of those libraries, they are somewhat "better" than RottenJS, but RottenJS is way more lighter and is prebuilt with modules like rottenUI and rotDev which improves your development experiences and it is suitable for small or medium-scale projects.
 
 ### Redom
-Redom and RottenJS are both very lightweight libraries. But Redom is suitable for modern projects, whereas RottenJS is good for small projects that needs DOM handling and manipulations.
+Redom and RottenJS are both very lightweight libraries. But Redom is a component-based library with templating and mounting DOM elements, while RottenJS is a DOM manipulation library.
 
 ## Social medias
 <li href="https://youtu.be/HgabIAgfURo">Youtube</li>
