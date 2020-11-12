@@ -238,6 +238,10 @@ Example:
 		alert('You clicked me!');
 	});
 
+### Scroll to an element smoothly
+
+	obj.scroll();
+
 ### Classes
 Adding classes:
 	
@@ -272,6 +276,23 @@ Example:
 Prepend:
 
 	obj.newEl('p','Hello guys','back'); //Prepend <p>Hello guys</p> to the parent node.
+
+### Create a new HTML element
+
+	let newElement = obj.createEl(tagname,content);
+
+Example:
+
+	// Create new element consist of a "p" tag with innerHTML of 'Hello'
+	let newElement = obj.createEl('p','Hello');
+
+You can mount that element onto another element using appendEl and prependEl:
+
+	obj.appendEl(newElement);
+	obj.prependEl(newElement);
+
+The differences between append() and appendEl() is that append() can insert text to the innerHTML of the element, while appendEl can insert text and objects we have created!
+
 
 ### Element's title
 Return element's title attribute:
@@ -354,6 +375,15 @@ Example:
 In 1.2.x, 'obj.el' is just a variable that holds a single DOM element, but in 1.3.x, it is now an array containing multiple DOM elements that it founds.
 
 <b>Note: All the states are stored in the 'localStorage' of the browser.</b>
+
+### Grabbing the first node found
+You can use:
+
+	obj.el[0]
+
+Or:
+
+	obj.first();
 
 ### Parse
 Parse HTML string:

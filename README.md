@@ -25,7 +25,7 @@ Or install it in npm:
 
 Or you can just pull it from unpkg.com by adding this to your .html file:
 
-	<script src="https://unpkg.com/rottenjs@1.4.0/rotten.min.js"></script>
+	<script src="https://unpkg.com/rottenjs@1.5.0/rotten.min.js"></script>
 
 ### Add RottenJS to your project
 Add this tag to the 'head' tag of your .html files:
