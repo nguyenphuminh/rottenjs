@@ -221,27 +221,6 @@ function rotten(selector){
 				}
 			}
 		},
-		applyEl: (target,callback) => {
-			if (target != undefined){
-				setInterval(function(){
-					document.querySelector(target).innerHTML = obj.el[0].value;
-					if (callback != undefined){
-						callback();
-					}
-				},1);
-			}
-		},
-		aplCheckEl: (checked, unchecked) => {
-			if (checked != undefined && unchecked != undefined){
-				setInterval(function(){
-					if (obj.el[0].checked == true){
-						checked();
-					} else {
-						unchecked();
-					}
-				},1);
-			}
-		},
 		click: (callback) => {
 			if (callback == undefined) return null;
 			for (i=0;i<obj.el.length;i++){
@@ -289,6 +268,48 @@ function rotten(selector){
 				}
 			}
 		},
+		scroll: () => {
+			obj.el[0].scrollIntoView({ behavior: 'smooth' });
+		},
+		first: () => obj.el[0],
+		createEl: (tag, content) => {
+			nel = document.createElement(tag);
+			if (content != undefined) {
+				nel.innerHTML = content;
+			}
+			return nel;
+		},
+		appendEl: (value) => {
+			for (i=0;i<obj.el.length;i++){
+				obj.el[i].append(value);
+			}
+		},
+		prependEl: (value) => {
+			for (i=0;i<obj.el.length;i++){
+				obj.el[i].prepend(value);
+			}
+		},
+		applyEl: (target,callback) => {
+			if (target != undefined){
+				setInterval(function(){
+					document.querySelector(target).innerHTML = obj.el[0].value;
+					if (callback != undefined){
+						callback();
+					}
+				},1);
+			}
+		},
+		aplCheckEl: (checked, unchecked) => {
+			if (checked != undefined && unchecked != undefined){
+				setInterval(function(){
+					if (obj.el[0].checked == true){
+						checked();
+					} else {
+						unchecked();
+					}
+				},1);
+			}
+		},
 		saveState: () => {
 			localStorage.setItem(selector, obj.el[0].innerHTML);
 		},
@@ -308,9 +329,7 @@ function rotten(selector){
 				obj.el[i].classList.remove(value);
 			}
 		},
-		hasClass: (value) => {
-			return obj.el[0].classList.contains(value);
-		},
+		hasClass: (value) => obj.el[0].classList.contains(value),
 		toggleClass: (value) => {
 			for (i=0;i<obj.el.length;i++){
 				obj.el[i].classList.toggle(value);
@@ -349,12 +368,8 @@ function rotten(selector){
 				obj.el[0].style.transform = `rotate(${rotSp}deg)`;
 			}
 		},
-		parent: () => {
-			return obj.el[0].parentNode;
-		},
-		child: () => {
-			return obj.el[0].children;
-		},
+		parent: () => obj.el[0].parentNode,
+		child: () => obj.el[0].children,
 		typing: (option) => {
 			let i = 0;
 			let text = option.str;
@@ -388,12 +403,8 @@ function rotten(selector){
 				type();
 			}
 		},
-		isArray: (arr) => {
-			return Array.isArray(arr);
-		},
-		parseJSON: (str) => {
-			return JSON.parse(str);
-		},
+		isArray: (arr) => Array.isArray(arr),
+		parseJSON: (str) => JSON.parse(str),
 		parseHTML: (str) => {
 			var tmp = document.implementation.createHTMLDocument();
 			tmp.body.innerHTML = str;
@@ -404,9 +415,7 @@ function rotten(selector){
 				return child !== obj.el[0];
 			});
 		},
-		now: () => {
-			return Date.now();
-		}
+		now: () => Date.now()
 	}
 	return obj;
 }
