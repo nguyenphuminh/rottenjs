@@ -91,6 +91,11 @@ You can remove attributes with:
 
 	obj.removeAttr(attribute_name);
 
+But, all of the methods above will targets all the elements, to only targets one element that is found first, use:
+
+	obj.prop(attribute_name, value);
+	obj.removeProp(attribute_name);
+
 ### Working with styles and CSS
 You can easily change css property of an object using:
 
@@ -141,6 +146,18 @@ Example:
 	},function(){
 		console.log('On text');
 	});
+
+### Mount a element onto another element
+
+	obj.mount(target,position);
+
+Example:
+
+	// Append current element to the front of 'h1'
+	obj.mount('h1');
+
+	// Prepend current element to the back of 'h1'
+	obj.mount('h1','back');
 
 ### Taking inputs from HTML form
 Taking input can be done by:
