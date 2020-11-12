@@ -11,10 +11,31 @@ function rotten(selector){
 				}
 			}
 		},
+		prop: (attr, value) => {
+			if (value == undefined){
+				return obj.el[0].getAttribute(attr);
+			} else {
+				obj.el[0].setAttribute(attr, value);
+			}
+		},
+		mount: (target,pos) => {
+			if (target != undefined){
+				if (pos == 'back'){
+					let tg = document.querySelector(target);
+					tg.innerHTML = obj.el[0].outerHTML + tg.innerHTML;
+				} else {
+					let tg = document.querySelector(target);
+					tg.innerHTML = tg.innerHTML + obj.el[0].outerHTML;
+				}
+			}
+		},
 		removeAttr:(value) => {
 			for (i=0;i<obj.el.length;i++){
 				obj.el[i].removeAttribute(value);
 			}
+		},
+		removeProp:(value) => {
+			obj.el[0].removeAttribute(value);
 		},
 		css: (property, value) => {
 			for (i=0;i<obj.el.length;i++){
