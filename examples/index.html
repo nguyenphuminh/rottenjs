@@ -30,11 +30,11 @@
 	</div>
 
 	<script type="text/javascript">
-		rDev.mobile(function(){
-			alert('You are using this on a mobile device!');
+		rotDev.mobile(function(){
+			alert('You are running this using a mobile device or emulator!');
 		});
 
-		rUI.setTitle('Todo App');
+		rUI.setTitle('RottenJS Todo');
 		let name = rt('.name');
 		let tasklist = rt('.task');
 		if (localStorage.getItem('stuff') != null){
@@ -57,8 +57,6 @@
 			speed:100,
 			clrPrev:true,
 		});
-
-
 	</script>
 </body>
 </html>

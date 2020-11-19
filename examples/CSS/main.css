@@ -2,10 +2,18 @@
 	font-family: helvetica;
 }
 
+body {
+	margin:0;
+	text-shadow: 2px 2px 4px darkgray;
+	background-color: lightgray;
+}
+
 .taskbox{
 	width: 30%;
 	padding: 1%;
-	border:2px solid gray;
+	border:2px solid black;
+	border-radius: 5px;
+	background-color: white;
 	margin-top: 1%;
 }
 .content{
@@ -38,4 +46,13 @@ button{
 button:hover{
 	background-color: white;
 	color:#5246ab;
+}
+
+@media screen and (max-width: 700px) {
+	.taskbox{
+		width: 60%;
+	}
+	input{
+		width:40%;
+	}
 }
