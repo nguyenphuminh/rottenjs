@@ -60,6 +60,7 @@ Redom and RottenJS are both very lightweight libraries. But Redom is a component
 ## Social medias
 <li href="https://youtu.be/HgabIAgfURo">Youtube</li>
 <li href="https://www.facebook.com/Rottenjs-The-Javascript-Library-112227464032668">Facebook</li>
+<li href="https://rottenjs.herokuapp.com">Website</li>
 
 ## Copyrights and License
 Copyrights © 2020 Nguyen Phu Minh

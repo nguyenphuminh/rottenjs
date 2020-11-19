@@ -1,0 +1,58 @@
+*{
+	font-family: helvetica;
+}
+
+body {
+	margin:0;
+	text-shadow: 2px 2px 4px darkgray;
+	background-color: lightgray;
+}
+
+.taskbox{
+	width: 30%;
+	padding: 1%;
+	border:2px solid black;
+	border-radius: 5px;
+	background-color: white;
+	margin-top: 1%;
+}
+.content{
+	margin-top: 6%;
+}
+.header{
+	color:#5246ab;
+	font-family: pacificoregular;
+	font-size: 130px;
+}
+.tasktitle{
+	font-family: helvetica;
+	font-size:30px;
+}
+
+input{
+	width:30%;
+	border-radius: 5px;
+	border:2px solid black;
+}
+button{
+	margin-left: 3px;
+	border-radius: 5px;
+	border:2px solid #5246ab;
+	background-color: #5246ab;
+	color:white;
+	cursor: pointer;
+	transition: 0.3s;
+}
+button:hover{
+	background-color: white;
+	color:#5246ab;
+}
+
+@media screen and (max-width: 700px) {
+	.taskbox{
+		width: 60%;
+	}
+	input{
+		width:40%;
+	}
+}

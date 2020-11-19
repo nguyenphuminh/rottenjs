@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="./js/rotten.js"></script>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
+	<link rel="stylesheet" type="text/css" href="./css/stylesheet.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="margin:0">
+	<script type="text/javascript" src='./js/main.js'></script>
+	<div class="content" align="center">
+		<div class="header"></div>
+		<br/>
+		<br/>
+		<br/>
+		<input placeholder="Task" class='name'>
+		<button onclick='add();'>Add</button><button onclick="localStorage.removeItem('stuff');tasklist.text('');content='';">Clear</button>
+		<br/>
+		<br/>
+		<br/>
+		<div class='tasktitle'>Tasks:</div>
+		<br/>
+		<div class='task'></div>
+		<br/>
+		<br/>
+		<div>Note: Click on the task to clear it!</div>
+		<br/>
+		<p class='spin' style="position: fixed;bottom:1%;left:1%;">RJS</p>
+	</div>
+
+	<script type="text/javascript">
+		rotDev.mobile(function(){
+			alert('You are running this using a mobile device or emulator!');
+		});
+
+		rUI.setTitle('RottenJS Todo');
+		let name = rt('.name');
+		let tasklist = rt('.task');
+		if (localStorage.getItem('stuff') != null){
+			content = localStorage.getItem('stuff');
+		} else {
+			content='';
+		}
+		tasklist.html(content);
+
+		let obj=rt('.spin');
+		obj.rotate(1,{
+			loop:true,
+			delay:1,
+			end:false
+		});
+
+		let obj2=rt('.header');
+		obj2.typing({
+			str:'Todos',
+			speed:100,
+			clrPrev:true,
+		});
+	</script>
+</body>
+</html>
