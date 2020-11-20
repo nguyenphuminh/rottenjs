@@ -39,9 +39,7 @@ function rotten(selector){
 		},
 		css: (property, value) => {
 			for (i=0;i<obj.el.length;i++){
-				if (obj.el[i].getAttribute('style') == null){
-					obj.el[i].setAttribute('style', '');
-				}
+				if (obj.el[i].getAttribute('style') == null) obj.el[i].setAttribute('style', '');
 				let new_value = `;${obj.el[i].getAttribute('style')};${property}:${value}`
 				obj.el[i].setAttribute('style', new_value);
 			}
@@ -63,9 +61,7 @@ function rotten(selector){
 					for (i=0;i<obj.el.length;i++){
 						obj.el[i].style.display = 'none';
 					}
-					if (callback != undefined){
-						callback();
-					}
+					if (callback != undefined) callback();
 				},time)
 		},
 		show: (time, callback) => {
@@ -76,15 +72,11 @@ function rotten(selector){
 				for (i=0;i<obj.el.length;i++){
 					obj.el[i].style.display = prevDisplay;
 				}
-				if (callback != undefined){
-					callback();
-				}
+				if (callback != undefined) callback();
 			},time)
 		},
 		fadeOut: (time,callback) => {
-			if (time == undefined) {
-				time = 0;
-			}
+			if (time == undefined) time = 0;
 			for (i=0;i<obj.el.length;i++){
 				obj.el[i].style.opacity ='0';
 				obj.el[i].style.transition = `opacity ${time}ms`;
@@ -92,9 +84,7 @@ function rotten(selector){
 			setTimeout(callback,time);
 		},
 		fadeIn: (time,callback) => {
-			if (time == undefined) {
-				time = 0;
-			}
+			if (time == undefined) time = 0;
 			for (i=0;i<obj.el.length;i++){
 				obj.el[i].style.opacity = '1';
 				obj.el[i].style.transition = `opacity ${time}ms`;
@@ -177,9 +167,7 @@ function rotten(selector){
 							break;
 						}
 					}	
-					if (denied == false) {
-						other();
-					}
+					if (denied == false) other();
 				}
 			}
 		},
@@ -201,9 +189,7 @@ function rotten(selector){
 					}
 				}
 			}
-			if (denied == false && original != undefined){
-				original();
-			}
+			if (denied == false && original != undefined) original();
 		},
 		val: (value) => {
 			if (value == undefined) {
@@ -274,9 +260,7 @@ function rotten(selector){
 		first: () => obj.el[0],
 		createEl: (tag, content) => {
 			nel = document.createElement(tag);
-			if (content != undefined) {
-				nel.innerHTML = content;
-			}
+			if (content != undefined) nel.innerHTML = content;
 			return nel;
 		},
 		appendEl: (value) => {
@@ -293,9 +277,7 @@ function rotten(selector){
 			if (target != undefined){
 				setInterval(function(){
 					document.querySelector(target).innerHTML = obj.el[0].value;
-					if (callback != undefined){
-						callback();
-					}
+					if (callback != undefined) callback();
 				},1);
 			}
 		},
@@ -309,6 +291,21 @@ function rotten(selector){
 					}
 				},1);
 			}
+		},
+		renderIf: (condition,data,iftrue,iffalse) => {
+			setInterval(function(){
+				if (!condition) {
+					for (i=0;i<obj.el.length;i++){
+						obj.el[i].innerHTML="";
+					}
+					if (iffalse != undefined) iffalse();
+				} else {
+					for (i=0;i<obj.el.length;i++){
+						obj.el[i].innerHTML=data;
+					}
+					if (iftrue != undefined) iftrue();
+				}
+			},1); 
 		},
 		saveState: () => {
 			localStorage.setItem(selector, obj.el[0].innerHTML);
@@ -343,9 +340,7 @@ function rotten(selector){
 			let rotI=0;
 			let rotCt=1;
 			if (loop.loop == true){
-				if (loop.delay == undefined) {
-					loop.delay=1;
-				}
+				if (loop.delay == undefined) loop.delay=1;
 				obj.rot = setInterval(function(){
 					if (rotSp >= 1){
 						if (rotI >= 360) {
@@ -360,9 +355,7 @@ function rotten(selector){
 					}
 					obj.el[0].style.transform = `rotate(${rotI}deg)`;
 					rotI+=rotSp;
-					if (rotCt == loop.count && loop.end != false) {
-						clearInterval(obj.rot);
-					};
+					if (rotCt == loop.count && loop.end != false) clearInterval(obj.rot);
 				},loop.delay);
 			} else {
 				obj.el[0].style.transform = `rotate(${rotSp}deg)`;
@@ -374,9 +367,7 @@ function rotten(selector){
 			let i = 0;
 			let text = option.str;
 			let speed = option.speed;
-			if (option.clrPrev == true) {
-				obj.el[0].innerHTML='';
-			}
+			if (option.clrPrev == true) obj.el[0].innerHTML='';
 			if (option.loop == true) {
 				if (option.delay == undefined) option.delay=1000;
 				function type() {
@@ -423,7 +414,7 @@ const rt = (selector) => rotten(selector);
 const rottenUI = {
 	setBGVideo: function (obj){
 		let a = document.querySelector("body");
-		a.innerHTML = '<video style="position:fixed; right:0; top:0; min-width:100%; min-height:100%; width:auto; height:auto; z-index:-1" autoplay loop class="baceo-vid" muted plays-inline><source src=' + obj.path + ' type=video/' + obj.type + '></video>' + a.innerHTML;
+		a.innerHTML = '<video style="position:fixed; right:0; top:0; min-width:100%; min-height:100%; width:auto; height:auto; z-index:-1" autoplay loop class="baceo-vid" muted plays-inline><source src='+obj.path+' type=video/'+obj.type+'></video>'+a.innerHTML;
 		if (obj.style != undefined){
 			let b = document.querySelector(".baceo-vid").style;
 			b = b + obj.style;

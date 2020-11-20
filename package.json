@@ -1,8 +1,8 @@
 {
   "name": "rottenjs",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "A simple Javascript library for DOM and UI development",
-  "main": "rotten.min.js",
+  "main": "rotten.js",
   "directories": {
     "example": "examples"
   },
@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/nguyenphuminh/rottenjs/issues"
   },
-  "homepage": "https://github.com/nguyenphuminh/rottenjs#readme"
+  "homepage": "https://github.com/nguyenphuminh/rottenjs#readme",
+  "dependencies": {
+    "uglifyjs": "^2.4.11"
+  }
 }
