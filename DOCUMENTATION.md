@@ -359,6 +359,15 @@ Remove saved state:
 	obj.parent() - Return the parent node
 	obj.child() - Return the child node
 
+### Condition checking
+
+	// Only render this element with "data" if condition is true. If it is true, executes iftrue(), else, executes iffalse()
+	obj.renderIf(condition,data,iftrue,iffalse);
+
+Example:
+
+	obj.renderIf((obj.html() == "Stupid")),"Not stupid");
+
 ### Using normal Javascript methods
 If you don't know, 'obj.el' is actually an array of DOM elements that targets to the previous object, so you can apply Javascript methods.
 
