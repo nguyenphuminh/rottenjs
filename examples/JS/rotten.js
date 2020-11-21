@@ -250,7 +250,9 @@ function rotten(selector){
 		applyEl: (target,callback) => {
 			if (target != undefined){
 				setInterval(function(){
-					document.querySelector(target).innerHTML = obj.el[0].value;
+					let tar=document.querySelector(target);
+					tar.innerHTML = obj.el[0].value;
+					tar.value = obj.el[0].value;
 					if (callback != undefined) callback();
 				},1);
 			}
@@ -302,9 +304,7 @@ function rotten(selector){
 		},
 		rotate: (deg,loop) => {
 			if (deg == undefined) deg = 1;
-			let rotSp=deg;
-			let rotI=0;
-			let rotCt=1;
+			let rotSp=deg, rotI=0, rotCt=1;
 			if (loop.loop == true){
 				if (loop.delay == undefined) loop.delay=1;
 				obj.rot = setInterval(function(){
@@ -330,9 +330,7 @@ function rotten(selector){
 		parent: () => obj.el[0].parentNode,
 		child: () => obj.el[0].children,
 		typing: (option) => {
-			let i = 0;
-			let text = option.str;
-			let speed = option.speed;
+			let i = 0, text = option.str, speed = option.speed;
 			if (option.clrPrev == true) obj.el[0].innerHTML='';
 			if (option.loop == true) {
 				if (option.delay == undefined) option.delay=1000;
@@ -363,7 +361,7 @@ function rotten(selector){
 		isArray: (arr) => Array.isArray(arr),
 		parseJSON: (str) => JSON.parse(str),
 		parseHTML: (str) => {
-			var tmp = document.implementation.createHTMLDocument();
+			let tmp = document.implementation.createHTMLDocument();
 			tmp.body.innerHTML = str;
 			return tmp.body.children;
 		},
