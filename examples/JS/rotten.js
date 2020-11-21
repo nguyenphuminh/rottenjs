@@ -30,9 +30,7 @@ function rotten(selector){
 			}
 		},
 		removeAttr:(value) => {
-			for (i=0;i<obj.el.length;i++){
-				obj.el[i].removeAttribute(value);
-			}
+			for (i=0;i<obj.el.length;i++) obj.el[i].removeAttribute(value);
 		},
 		removeProp:(value) => {
 			obj.el[0].removeAttribute(value);
@@ -54,24 +52,16 @@ function rotten(selector){
 			}
 		},
 		hide: (time, callback) => {
-				if (time == undefined){
-					time=0;
-				}
-				setTimeout(function(){
-					for (i=0;i<obj.el.length;i++){
-						obj.el[i].style.display = 'none';
-					}
-					if (callback != undefined) callback();
-				},time)
+			if (time == undefined) time=0;
+			setTimeout(function(){
+				for (i=0;i<obj.el.length;i++) obj.el[i].style.display = 'none';
+				if (callback != undefined) callback();
+			},time)
 		},
 		show: (time, callback) => {
-			if (time == undefined){
-				time=0;
-			}
+			if (time == undefined) time=0;
 			setTimeout(function(){
-				for (i=0;i<obj.el.length;i++){
-					obj.el[i].style.display = prevDisplay;
-				}
+				for (i=0;i<obj.el.length;i++) obj.el[i].style.display = prevDisplay;
 				if (callback != undefined) callback();
 			},time)
 		},
@@ -119,34 +109,22 @@ function rotten(selector){
 			}
 		},
 		on: (event, callback) => {
-			for (i=0;i<obj.el.length;i++){
-				obj.el[i].addEventListener(event, callback);
-			}
+			for (i=0;i<obj.el.length;i++) obj.el[i].addEventListener(event, callback);
 		},
 		off: (event, callback) => {
-			for (i=0;i<obj.el.length;i++){
-				obj.el[i].removeEventListener(event, callback);
-			}
+			for (i=0;i<obj.el.length;i++) obj.el[i].removeEventListener(event, callback);
 		},
 		append: (value) => {
-			for (i=0;i<obj.el.length;i++){
-				obj.el[i].innerHTML=`${obj.el[i].innerHTML}${value}`;
-			}
+			for (i=0;i<obj.el.length;i++) obj.el[i].innerHTML=`${obj.el[i].innerHTML}${value}`;
 		},
 		prepend: (value) => {
-			for (i=0;i<obj.el.length;i++){
-				obj.el[i].innerHTML=`${value}${obj.el[i].innerHTML}`;
-			}
+			for (i=0;i<obj.el.length;i++) obj.el[i].innerHTML=`${value}${obj.el[i].innerHTML}`;
 		},
 		remove: () => {
-			for (i=0;i<obj.el.length;i++){
-				obj.el[i].outerHTML='';
-			}
+			for (i=0;i<obj.el.length;i++) obj.el[i].outerHTML='';
 		},
 		empty: () => {
-			for (i=0;i<obj.el.length;i++){
-				obj.el[i].innerHTML='';
-			}
+			for (i=0;i<obj.el.length;i++) obj.el[i].innerHTML='';
 		},
 		input: (value,callback,other) => {
 			let denied=false;
@@ -264,14 +242,10 @@ function rotten(selector){
 			return nel;
 		},
 		appendEl: (value) => {
-			for (i=0;i<obj.el.length;i++){
-				obj.el[i].append(value);
-			}
+			for (i=0;i<obj.el.length;i++) obj.el[i].append(value);
 		},
 		prependEl: (value) => {
-			for (i=0;i<obj.el.length;i++){
-				obj.el[i].prepend(value);
-			}
+			for (i=0;i<obj.el.length;i++) obj.el[i].prepend(value);
 		},
 		applyEl: (target,callback) => {
 			if (target != undefined){
@@ -317,25 +291,17 @@ function rotten(selector){
 			localStorage.removeItem(selector);
 		},
 		addClass: (value) => {
-			for (i=0;i<obj.el.length;i++){
-				obj.el[i].classList.add(value);
-			}
+			for (i=0;i<obj.el.length;i++) obj.el[i].classList.add(value);
 		},
 		removeClass: (value) => {
-			for (i=0;i<obj.el.length;i++){
-				obj.el[i].classList.remove(value);
-			}
+			for (i=0;i<obj.el.length;i++) obj.el[i].classList.remove(value);
 		},
 		hasClass: (value) => obj.el[0].classList.contains(value),
 		toggleClass: (value) => {
-			for (i=0;i<obj.el.length;i++){
-				obj.el[i].classList.toggle(value);
-			}
+			for (i=0;i<obj.el.length;i++) obj.el[i].classList.toggle(value);
 		},
 		rotate: (deg,loop) => {
-			if (deg == undefined) {
-				deg = 1;
-			}
+			if (deg == undefined) deg = 1;
 			let rotSp=deg;
 			let rotI=0;
 			let rotCt=1;
