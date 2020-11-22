@@ -294,7 +294,16 @@ function rotten(selector){
 				return child !== obj.el[0];
 			});
 		},
-		now: () => Date.now()
+		now: () => Date.now(),
+		switch: (target) => {
+			let swap,tar;
+			obj.el.forEach(item => {
+				tar = document.querySelector(target);
+				swap = item.outerHTML;
+				item.outerHTML = tar.outerHTML;
+				tar.outerHTML = swap;
+			});
+		}
 	}
 	return obj;
 }
