@@ -40,10 +40,12 @@ Again, you can add this block of code rather than the one above:
 
 ## Pros and Cons
 ### Pros
+<li>Written in pure Javascript, easy to setup, no toolings needed.</li>
 <li>Extremely lightweigh and fast.</li>
 <li>Prebuilt with decent modules.</li>
 
 ### Cons
+<li>Not highly optimized.</li>
 <li>Small community.</li>
 <li>Maintained by only one person.</li>
 
@@ -51,7 +53,7 @@ Again, you can add this block of code rather than the one above:
 ### Vue, React & Angular
 Vue, React, Angular, <i>AngularJS</i> might have better usablities and capabilities than RottenJS. They outweights RottenJS when talking about features and community.
 
-### Backbone, jQuery, UmbrellaJS
+### jQuery, UmbrellaJS
 RottenJS shares similarities with three of those libraries, they are somewhat "better" than RottenJS, but RottenJS is way more lighter and is prebuilt with modules like rottenUI and rotDev which improves your development experiences and it is suitable for small or medium-scale projects.
 
 ### Redom
