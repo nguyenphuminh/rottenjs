@@ -96,6 +96,11 @@ But, all of the methods above will targets all the elements, to only targets one
 	obj.prop(attribute_name, value);
 	obj.removeProp(attribute_name);
 
+To works with multiple attributes, you can use:
+
+	obj.mulAttr([attribute1, attribute2],[value1, value2]);
+	obj.mulProp([attribute1, attribute2],[value1, value2]);
+
 ### Working with styles and CSS
 You can easily change css property of an object using:
 
@@ -115,6 +120,10 @@ Example:
 		font-size:20px;
 		font-family:Arial;
 	`);
+
+To works with multiple css properties, you can use:
+
+	obj.mulCSS([property1,property2], [value1, value2]);
 
 ### Events
 You can add an event by using:
