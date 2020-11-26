@@ -38,8 +38,8 @@ function rotten(selector){
 				}
 			}
 		},
-		removeAttr:(value) => obj.el.forEach(item => item.removeAttribute(value)),
-		removeProp:(value) => obj.el[0].removeAttribute(value),
+		removeAttr:value => obj.el.forEach(item => item.removeAttribute(value)),
+		removeProp:value => obj.el[0].removeAttribute(value),
 		css: (property, value) => {
 			obj.el.forEach(item => {
 				if (item.getAttribute('style') == null) item.setAttribute('style', '');
@@ -58,7 +58,7 @@ function rotten(selector){
 				}
 			}
 		},
-		style: (value) => {
+		style: value => {
 			if (value == undefined) return obj.el[0].getAttribute('style');
 			obj.el.forEach(item => item.setAttribute('style', value));
 		},
@@ -92,22 +92,22 @@ function rotten(selector){
 			});
 			setTimeout(callback,time);
 		},
-		text: (value) => {
+		text: value => {
 			if (value == undefined) return obj.el[0].innerText;
 			obj.el.forEach(item => item.innerText=value);
 		},
-		html: (value) => {
+		html: value => {
 			if (value == undefined) return obj.el[0].innerHTML;
 			obj.el.forEach(item => item.innerHTML=value);
 		},
-		body: (value) => {
+		body: value => {
 			if (value == undefined) return obj.el[0].outerHTML;
 			obj.el.forEach(item => item.outerHTML=value);
 		},
 		on: (event, callback) => obj.el.forEach(item => item.addEventListener(event, callback)),
 		off: (event, callback) => obj.el.forEach(item => item.removeEventListener(event, callback)),
-		append: (value) => obj.el.forEach(item => item.innerHTML=`${item.innerHTML}${value}`),
-		prepend: (value) => obj.el.forEach(item => item.innerHTML=`${value}${item.innerHTML}`),
+		append: value => obj.el.forEach(item => item.innerHTML=`${item.innerHTML}${value}`),
+		prepend: value => obj.el.forEach(item => item.innerHTML=`${value}${item.innerHTML}`),
 		remove: () => obj.el.forEach(item => item.outerHTML=''),
 		empty: () => obj.el.forEach(item => item.innerHTML=''),
 		input: (value,callback,other) => {
@@ -153,7 +153,7 @@ function rotten(selector){
 			}
 			if (!denied && original != undefined) original();
 		},
-		val: (value) => {
+		val: value => {
 			if (value == undefined) {
 				return obj.el[0].value;
 			} else {
@@ -169,7 +169,7 @@ function rotten(selector){
 				}
 			}
 		},
-		click: (callback) => {
+		click: callback => {
 			if (callback == undefined) return null;
 			obj.el.forEach(item => item.onclick = () => callback());
 		},
@@ -180,11 +180,11 @@ function rotten(selector){
 				item.onmouseenter = () => onhover();
 			});
 		},
-		title: (value) => {
+		title: value => {
 			if (title == undefined) return obj.el[0].title;
 			obj.el.forEach(item => item.title = value);
 		},
-		newEl: (tag,content,pos) => {
+		newEl: (tag,content,pos,attr,value) => {
 			if (pos == undefined) pos = 'front';
 			if (tag != undefined && content != undefined){
 				let nel;
@@ -192,12 +192,14 @@ function rotten(selector){
 					obj.el.forEach(item => {
 						nel = document.createElement(tag);
 						nel.innerHTML = content;
+						if (typeof attr == "object" && typeof value == "object" && attr.length == value.length) for (i=0;i<attr.length;i++) nel.setAttribute(attr[i],value[i]);
 						item.append(nel);
 					});
 				} else if (pos == 'back'){
 					obj.el.forEach(item => {
 						nel = document.createElement(tag);
 						nel.innerHTML = content;
+						if (typeof attr == "object" && typeof value == "object" && attr.length == value.length) for (i=0;i<attr.length;i++) nel.setAttribute(attr[i],value[i]);
 						item.prepend(nel);
 					});
 				}
@@ -205,13 +207,14 @@ function rotten(selector){
 		},
 		scroll: () => obj.el[0].scrollIntoView({ behavior: 'smooth' }),
 		first: () => obj.el[0],
-		createEl: (tag, content) => {
+		createEl: (tag, content, attr, value) => {
 			nel = document.createElement(tag);
 			if (content != undefined) nel.innerHTML = content;
+			if (typeof attr == "object" && typeof value == "object" && attr.length == value.length) for (i=0;i<attr.length;i++) nel.setAttribute(attr[i],value[i]);
 			return nel;
 		},
-		appendEl: (value) => obj.el.forEach(item => item.append(value)),
-		prependEl: (value) => obj.el.forEach(item => item.prepend(value)),
+		appendEl: value => obj.el.forEach(item => item.append(value)),
+		prependEl: value => obj.el.forEach(item => item.prepend(value)),
 		applyEl: (target,callback) => {
 			if (target != undefined){
 				setInterval(function(){
@@ -247,10 +250,10 @@ function rotten(selector){
 		saveState: () => localStorage.setItem(selector, obj.el[0].innerHTML),
 		loadState: () => obj.el[0].innerHTML = localStorage.getItem(selector),
 		clearState: () => localStorage.removeItem(selector),
-		addClass: (value) => obj.el.forEach(item => item.classList.add(value)),
-		removeClass: (value) => obj.el.forEach(item => item.classList.remove(value)),
-		hasClass: (value) => obj.el[0].classList.contains(value),
-		toggleClass: (value) => obj.el.forEach(item => item.classList.toggle(value)),
+		addClass: value => obj.el.forEach(item => item.classList.add(value)),
+		removeClass: value => obj.el.forEach(item => item.classList.remove(value)),
+		hasClass: value => obj.el[0].classList.contains(value),
+		toggleClass: value => obj.el.forEach(item => item.classList.toggle(value)),
 		rotate: (deg,loop) => {
 			if (deg == undefined) deg = 1;
 			let rotSp=deg, rotI=0, rotCt=1;
@@ -278,7 +281,7 @@ function rotten(selector){
 		},
 		parent: () => obj.el[0].parentNode,
 		child: () => obj.el[0].children,
-		typing: (option) => {
+		typing: option => {
 			let i = 0, text = option.str, speed = option.speed;
 			if (option.clrPrev) obj.el[0].innerHTML='';
 			if (option.loop) {
@@ -307,9 +310,9 @@ function rotten(selector){
 				type();
 			}
 		},
-		isArray: (arr) => Array.isArray(arr),
-		parseJSON: (str) => JSON.parse(str),
-		parseHTML: (str) => {
+		isArray: arr => Array.isArray(arr),
+		parseJSON: str => JSON.parse(str),
+		parseHTML: str => {
 			let tmp = document.implementation.createHTMLDocument();
 			tmp.body.innerHTML = str;
 			return tmp.body.children;
@@ -320,7 +323,7 @@ function rotten(selector){
 			});
 		},
 		now: () => Date.now(),
-		switch: (target) => {
+		switch: target => {
 			let swap,tar;
 			obj.el.forEach(item => {
 				tar = document.querySelector(target);
@@ -334,7 +337,7 @@ function rotten(selector){
 }
 const rt = (selector) => rotten(selector);
 const rottenUI = {
-	setBGVideo: (obj) => {
+	setBGVideo: obj => {
 		let a = document.querySelector("body");
 		a.innerHTML = '<video style="position:fixed; right:0; top:0; min-width:100%; min-height:100%; width:auto; height:auto; z-index:-1" autoplay loop class="baceo-vid" muted plays-inline><source src='+obj.path+' type=video/'+obj.type+'></video>'+a.innerHTML;
 		if (obj.style != undefined){
@@ -342,11 +345,11 @@ const rottenUI = {
 			b = b + obj.style;
 		}
 	},
-	setBGImage: (path) => {
+	setBGImage: path => {
 		let a = document.querySelector("body");
 		a.innerHTML = `<img style="position:fixed; right:0; top:0; min-width:100%; min-height:100%; width:auto; height:auto; z-index:-1" src="${path}"></img> ${a.innerHTML}`;
 	},
-	setTitle: (title) => {
+	setTitle: title => {
 		let a = document.querySelector('head');
 		if (a.innerHTML.indexOf('<title>') == -1){
 			a.innerHTML = a.innerHTML + `<title>${title}</title>`;
@@ -355,11 +358,11 @@ const rottenUI = {
 			b.innerHTML = title;
 		}
 	},
-	setLogo: (path) => {
+	setLogo: path => {
 		let a = document.querySelector('head');
 		a.innerHTML = `<link rel='icon' href='${path}'></link>${a.innerHTML}`;
 	},
-	setLoadBar: (obj) => {
+	setLoadBar: obj => {
 		let a = document.querySelector("body");
 		a.innerHTML = "<div class='processjs'></div>" + a.innerHTML;
 		let b = document.querySelector(".processjs");
@@ -381,19 +384,19 @@ const rottenUI = {
 }
 const rUI = rottenUI;
 const rotDev = {
-	mobile: (callback) => {
+	mobile: callback => {
 		if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) callback();
 	},
-	windows: (callback) => {
+	windows: callback => {
 		if (navigator.appVersion.indexOf("Win") != -1) callback();
 	},
-	mac: (callback) => {
+	mac: callback => {
 		if (navigator.appVersion.indexOf("Mac") != -1) callback();
 	},
-	linux: (callback) => {
+	linux: callback => {
 		if (navigator.appVersion.indexOf("Linux") != -1) callback();
 	},
-	unix: (callback) => {
+	unix: callback => {
 		if (navigator.appVersion.indexOf("X11") != -1) callback();
 	},
 	os: (os,callback) => {
