@@ -276,7 +276,7 @@ Example:
 
 ### Create new child element
 
-	obj.newEl(tag_name,HTML_content);
+	obj.newEl(tag_name,HTML_content,position,attributes,attributes_values);
 
 Example:
 
@@ -285,6 +285,10 @@ Example:
 Prepend:
 
 	obj.newEl('p','Hello guys','back'); //Prepend <p>Hello guys</p> to the parent node.
+
+You can also set attributes for it, example:
+
+	obj.newEl('p','Hello guys','front',['class','title'],['Hello','RottenJS Object']);
 
 ### Create a new HTML element
 
@@ -301,6 +305,10 @@ You can mount that element onto another element using appendEl and prependEl:
 	obj.prependEl(newElement);
 
 The differences between append() and appendEl() is that append() can insert text to the innerHTML of the element, while appendEl can insert text and objects we have created!
+
+You can also set attributes for those new elements you have created, example:
+
+	let newElement = obj.createEl('p','Hello',['class','title'],['Hello','RottenJS Object']);
 
 
 ### Element's title
@@ -386,9 +394,9 @@ Example:
 	obj.el[0].innerHTML = 'Hello, World!';
 
 	// Change all the innerHTML of all the elements that it meets
-	for (i=0;i<obj.el.length;i++) {
-		obj.el[i].innerHTML = "Hello, World!";
-	}
+	obj.el.forEach(item => {
+		item.innerHTML = "Hello, World!";
+	})
 
 In 1.2.x, 'obj.el' is just a variable that holds a single DOM element, but in 1.3.x, it is now an array containing multiple DOM elements that it founds.
 
