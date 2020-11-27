@@ -310,6 +310,18 @@ You can also set attributes for those new elements you have created, example:
 
 	let newElement = obj.createEl('p','Hello',['class','title'],['Hello','RottenJS Object']);
 
+To remove an element, use:
+
+	obj.disableEl(element);
+
+Example:
+
+	let newElement = obj.createEl('p','Hello');
+	obj.disableEl(newElement);
+
+You can also remove normal element, example:
+
+	obj.disableEl(document.querySelector('div'));
 
 ### Element's title
 Return element's title attribute:
