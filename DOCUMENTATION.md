@@ -1,7 +1,13 @@
 <div align="center">
 	<img src='assets/logo.png'/>
 	<br/>
-	<p>A simple, light-weight (5kb) Javascript library for DOM</p>
+	<p>A simple, light-weight (5kb) Javascript library for DOM manipulation and UI development</p>
+	<br/>
+	<a href="https://github.com/nguyenphuminh/rottenjs/blob/master/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-orange.svg"/></a>
+	<a href="https://npmcharts.com/compare/rottenjs?minimal=true"><img src="https://img.shields.io/npm/dm/rottenjs.svg?sanitize=true" alt="Downloads"></a>
+	<a href="https://www.npmjs.com/package/rottenjs"><img src="https://img.shields.io/npm/v/rottenjs.svg?sanitize=true" alt="Version"></a>
+	<a href="https://github.com/nguyenphuminh/rottenjs/blob/main/.github/CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"></a>
+	
 </div>
 
 ## Getting started
@@ -210,14 +216,6 @@ If you want to set the value of the input tag, you can type in:
 
 	obj.val(value);
 
-Example:
-
-	obj.input('Hello', function(){
-		alert('Have a good day');
-	},function(){
-		obj.val('Hello');
-	});
-
 ### HTML form checkbox
 
 	// If checked, then executes checked()
@@ -357,7 +355,7 @@ Proceeding typing animations can be done with:
 
 Set 'clrPrev' to <b>true</b> if you want to clear the previous content before typing. If you set 'loop' to true, then it will write the string endlessly after 'delay' millisecond(s).
 
-### States of object
+### States of object (save current element to localStorage)
 Save current state:
 
 	obj.saveState();
@@ -374,7 +372,7 @@ Remove saved state:
 
 	obj.siblings();
 
-### Return current time
+### Return the number of milliseconds elapsed since January 1
 
 	obj.now();
 
@@ -390,7 +388,7 @@ Remove saved state:
 
 ### Condition checking
 
-	// Only render this element with "data" if condition is true. If it is true, executes iftrue(), else, executes iffalse()
+	// Only render this element with the innerHTML of "data" if condition is true. If it is true, executes iftrue(), else, executes iffalse()
 	obj.renderIf(condition,data,iftrue,iffalse);
 
 Example:
@@ -398,7 +396,7 @@ Example:
 	obj.renderIf((obj.html() == "Stupid")),"Not stupid");
 
 ### Using normal Javascript methods
-If you don't know, 'obj.el' is actually an array of DOM elements that targets to the previous object, so you can apply Javascript methods.
+If you don't know, 'obj.el' is actually an array of DOM elements that was targetted, so you can apply Javascript methods.
 
 Example:
 
@@ -411,8 +409,6 @@ Example:
 	})
 
 In 1.2.x, 'obj.el' is just a variable that holds a single DOM element, but in 1.3.x, it is now an array containing multiple DOM elements that it founds.
-
-<b>Note: All the states are stored in the 'localStorage' of the browser.</b>
 
 ### Grabbing the first node found
 You can use:
@@ -437,7 +433,7 @@ Parse JSON string:
 	obj.isArray(arr);
 
 
-## Develop UI using rottenUI
+## Custom methods for web development using rottenUI
 
 ### Add a background video
 
@@ -459,7 +455,7 @@ Parse JSON string:
 
 	rottenUI.setLogo(logo_path);
 
-### Add a top loading bar
+### Add a top loading (intro) bar
 
 	rottenUI.setLoadBar({
 		color:/*CSS Color*/,
