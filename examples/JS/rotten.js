@@ -8,16 +8,12 @@ function rotten(selector){
 		},
 		mulAttr: (attr, value) => {
 			if (typeof attr == "object" && typeof value == "object" && attr.length == value.length) {
-				for (i=0;i<attr.length;i++) {
-					obj.el.forEach(item => item.setAttribute(attr[i],value[i]));
-				}
+				for (i=0;i<attr.length;i++) obj.el.forEach(item => item.setAttribute(attr[i],value[i]));
 			}
 		},
 		mulProp: (attr, value) => {
 			if (typeof attr == "object" && typeof value == "object" && attr.length == value.length) {
-				for (i=0;i<attr.length;i++) {
-					obj.el[0].setAttribute(attr[i],value[i]);
-				}
+				for (i=0;i<attr.length;i++) obj.el[0].setAttribute(attr[i],value[i]);
 			}
 		},
 		prop: (attr, value) => {
@@ -108,7 +104,7 @@ function rotten(selector){
 		off: (event, callback) => obj.el.forEach(item => item.removeEventListener(event, callback)),
 		append: value => obj.el.forEach(item => item.innerHTML=`${item.innerHTML}${value}`),
 		prepend: value => obj.el.forEach(item => item.innerHTML=`${value}${item.innerHTML}`),
-		remove: () => obj.el.forEach(item => item.outerHTML=''),
+		remove: () => obj.el.forEach(item => item.remove()),
 		empty: () => obj.el.forEach(item => item.innerHTML=''),
 		input: (value,callback,other) => {
 			let denied=false;
@@ -187,21 +183,13 @@ function rotten(selector){
 		newEl: (tag,content,pos,attr,value) => {
 			if (pos == undefined) pos = 'front';
 			if (tag != undefined && content != undefined){
-				let nel;
+				let nel = document.createElement(tag);
+				nel.innerHTML = content;
+				if (typeof attr == "object" && typeof value == "object" && attr.length == value.length) for (i=0;i<attr.length;i++) nel.setAttribute(attr[i],value[i]);
 				if (pos == 'front') {
-					obj.el.forEach(item => {
-						nel = document.createElement(tag);
-						nel.innerHTML = content;
-						if (typeof attr == "object" && typeof value == "object" && attr.length == value.length) for (i=0;i<attr.length;i++) nel.setAttribute(attr[i],value[i]);
-						item.append(nel);
-					});
-				} else if (pos == 'back'){
-					obj.el.forEach(item => {
-						nel = document.createElement(tag);
-						nel.innerHTML = content;
-						if (typeof attr == "object" && typeof value == "object" && attr.length == value.length) for (i=0;i<attr.length;i++) nel.setAttribute(attr[i],value[i]);
-						item.prepend(nel);
-					});
+					obj.el.forEach(item => item.append(nel));
+				} else if (pos == 'back') {
+					obj.el.forEach(item => item.prepend(nel));
 				}
 			}
 		},
@@ -214,6 +202,7 @@ function rotten(selector){
 			return nel;
 		},
 		appendEl: value => obj.el.forEach(item => item.append(value)),
+		disableEl: value => obj.el.forEach(item => item.removeChild(value)),
 		prependEl: value => obj.el.forEach(item => item.prepend(value)),
 		applyEl: (target,callback) => {
 			if (target != undefined){
