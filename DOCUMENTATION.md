@@ -410,6 +410,22 @@ Example:
 
 In 1.2.x, 'obj.el' is just a variable that holds a single DOM element, but in 1.3.x, it is now an array containing multiple DOM elements that it founds.
 
+### Grabbing the next node found
+
+	obj.next()
+
+### Grabbing the previous node found
+
+	obj.prev()
+
+### Check if a parent node contains a child node
+
+	obj.contains(child, parent);
+
+### Check if the current node is the same as the other node
+
+	obj.is(other);
+
 ### Grabbing the first node found
 You can use:
 
@@ -419,7 +435,7 @@ Or:
 
 	obj.first();
 
-### Parse
+### Parse datas
 Parse HTML string:
 
 	obj.parseHTML(string);
