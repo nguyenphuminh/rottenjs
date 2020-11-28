@@ -13,11 +13,8 @@ function rotten(selector){
 			if (typeof attr == "object" && typeof value == "object" && attr.length == value.length) for (i=0;i<attr.length;i++) obj.el[0].setAttribute(attr[i],value[i]);
 		},
 		prop: (attr, value) => {
-			if (value == undefined){
-				return obj.el[0].getAttribute(attr);
-			} else {
-				obj.el[0].setAttribute(attr, value);
-			}
+			if (value == undefined) return obj.el[0].getAttribute(attr);
+			obj.el[0].setAttribute(attr, value);
 		},		
 		mount: (target,pos) => {
 			if (target != undefined){
@@ -104,16 +101,15 @@ function rotten(selector){
 		empty: () => obj.el.forEach(item => item.innerHTML=''),
 		input: (value,callback,other) => {
 			let denied=false;
-			if (value == undefined && callback == undefined && other == undefined){
+			if (value == undefined && callback == undefined && other == undefined)
 				return obj.el[0].value;
-			} else {
+			else {
 				if (typeof value == 'string'){
-					if (value == obj.el[0].value){
+					if (value == obj.el[0].value)
 						callback();
-					} else {
+					else
 						other();
-					}
-				} else if (typeof(value) == 'object'){
+				} else if (typeof value == 'object'){
 					for (i=0;i<value.length;i++){
 						if (value[i] == obj.el[0].value){
 							denied=true;
@@ -128,12 +124,12 @@ function rotten(selector){
 		inputs: (option,original) => {
 			let denied=false;
 			for (i=0;i<option.length;i++){
-				if (typeof(option[i].value) == 'string'){
+				if (typeof option[i].value == 'string'){
 					if (obj.el[0].value == option[i].value){
 						option[i].callback();
 						denied=true;
 					}
-				} else if (typeof(option[i].value) == 'object') {
+				} else if (typeof option[i].value == 'object') {
 					for (j=0;j<value.length;j++){
 						if (option[i].value[j] == obj.el[0].value){
 							denied=true;
@@ -146,19 +142,17 @@ function rotten(selector){
 			if (!denied && original != undefined) original();
 		},
 		val: value => {
-			if (value == undefined) {
+			if (value == undefined)
 				return obj.el[0].value;
-			} else {
+			else
 				obj.el[0].value = value;
-			}
 		},
 		check: (checked,unchecked) => {
 			if (checked != undefined && unchecked != undefined){
-				if (obj.el[0].checked == true){
+				if (obj.el[0].checked == true)
 					checked();
-				} else {
+				else
 					unchecked();
-				}
 			}
 		},
 		click: callback => {
@@ -183,11 +177,10 @@ function rotten(selector){
 				let nel = document.createElement(tag);
 				nel.innerHTML = content;
 				if (typeof attr == "object" && typeof value == "object" && attr.length == value.length) for (i=0;i<attr.length;i++) nel.setAttribute(attr[i],value[i]);
-				if (pos == 'front') {
+				if (pos == 'front')
 					obj.el.forEach(item => item.append(nel));
-				} else if (pos == 'back') {
+				else if (pos == 'back')
 					obj.el.forEach(item => item.prepend(nel));
-				}
 			}
 		},
 		createEl: (tag,content,attr,value) => {
@@ -215,11 +208,10 @@ function rotten(selector){
 		aplCheckEl: (checked, unchecked) => {
 			if (checked != undefined && unchecked != undefined){
 				setInterval(()=>{
-					if (obj.el[0].checked == true){
+					if (obj.el[0].checked == true)
 						checked();
-					} else {
+					else 
 						unchecked();
-					}
 				},1);
 			}
 		},
@@ -306,9 +298,7 @@ function rotten(selector){
 			return tmp.body.children;
 		},
 		siblings: () => {
-			Array.prototype.filter.call(obj.el[0].parentNode.children, child => {
-				return child !== obj.el[0];
-			});
+			Array.prototype.filter.call(obj.el[0].parentNode.children, child => child !== obj.el[0]);
 		},
 		now: () => Date.now(),
 		switch: target => {
@@ -319,7 +309,11 @@ function rotten(selector){
 				item.outerHTML = tar.outerHTML;
 				tar.outerHTML = swap;
 			});
-		}
+		},
+		contains: (el, child) => el !== child && el.contains(child),
+		is: target => obj.el[0].outerHTML == target,
+		next: () => obj.el[0].nextElementSibling,
+		prev: () => obj.el[0].previousElementSibling
 	}
 	return obj;
 }
@@ -339,9 +333,9 @@ const rottenUI = {
 	},
 	setTitle: title => {
 		let a = document.querySelector('head');
-		if (a.innerHTML.indexOf('<title>') == -1){
+		if (a.innerHTML.indexOf('<title>') == -1)
 			a.innerHTML = a.innerHTML + `<title>${title}</title>`;
-		} else {
+		else {
 			let b = document.querySelector('title');
 			b.innerHTML = title;
 		}
