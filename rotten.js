@@ -7,14 +7,10 @@ function rotten(selector){
 			obj.el.forEach(item => item.setAttribute(attr, value));
 		},
 		mulAttr: (attr, value) => {
-			if (typeof attr == "object" && typeof value == "object" && attr.length == value.length) {
-				for (i=0;i<attr.length;i++) obj.el.forEach(item => item.setAttribute(attr[i],value[i]));
-			}
+			if (typeof attr == "object" && typeof value == "object" && attr.length == value.length) for (i=0;i<attr.length;i++) obj.el.forEach(item => item.setAttribute(attr[i],value[i]));
 		},
 		mulProp: (attr, value) => {
-			if (typeof attr == "object" && typeof value == "object" && attr.length == value.length) {
-				for (i=0;i<attr.length;i++) obj.el[0].setAttribute(attr[i],value[i]);
-			}
+			if (typeof attr == "object" && typeof value == "object" && attr.length == value.length) for (i=0;i<attr.length;i++) obj.el[0].setAttribute(attr[i],value[i]);
 		},
 		prop: (attr, value) => {
 			if (value == undefined){
@@ -60,14 +56,14 @@ function rotten(selector){
 		},
 		hide: (time, callback) => {
 			if (time == undefined) time=0;
-			setTimeout(function(){
+			setTimeout(()=>{
 				obj.el.forEach(item => item.style.display = 'none');
 				if (callback != undefined) callback();
 			},time)
 		},
 		show: (time, callback) => {
 			if (time == undefined) time=0;
-			setTimeout(function(){
+			setTimeout(()=>{
 				obj.el.forEach(item => item.style.display = prevDisplay);
 				if (callback != undefined) callback();
 			},time)
@@ -180,6 +176,7 @@ function rotten(selector){
 			if (title == undefined) return obj.el[0].title;
 			obj.el.forEach(item => item.title = value);
 		},
+		scroll: () => obj.el[0].scrollIntoView({ behavior: 'smooth' }),
 		newEl: (tag,content,pos,attr,value) => {
 			if (pos == undefined) pos = 'front';
 			if (tag != undefined && content != undefined){
@@ -193,20 +190,21 @@ function rotten(selector){
 				}
 			}
 		},
-		scroll: () => obj.el[0].scrollIntoView({ behavior: 'smooth' }),
-		first: () => obj.el[0],
-		createEl: (tag, content, attr, value) => {
+		createEl: (tag,content,attr,value) => {
 			nel = document.createElement(tag);
 			if (content != undefined) nel.innerHTML = content;
 			if (typeof attr == "object" && typeof value == "object" && attr.length == value.length) for (i=0;i<attr.length;i++) nel.setAttribute(attr[i],value[i]);
 			return nel;
 		},
-		appendEl: value => obj.el.forEach(item => item.append(value)),
+		appendEl: (value,remove) => {
+			if (remove) obj.el.forEach(item => item.innerHTML='');
+			obj.el.forEach(item => item.append(value));
+		},
 		disableEl: value => obj.el.forEach(item => item.removeChild(value)),
 		prependEl: value => obj.el.forEach(item => item.prepend(value)),
 		applyEl: (target,callback) => {
 			if (target != undefined){
-				setInterval(function(){
+				setInterval(()=>{
 					let tar=document.querySelector(target);
 					tar.innerHTML = obj.el[0].value;
 					tar.value = obj.el[0].value;
@@ -216,7 +214,7 @@ function rotten(selector){
 		},
 		aplCheckEl: (checked, unchecked) => {
 			if (checked != undefined && unchecked != undefined){
-				setInterval(function(){
+				setInterval(()=>{
 					if (obj.el[0].checked == true){
 						checked();
 					} else {
@@ -226,7 +224,7 @@ function rotten(selector){
 			}
 		},
 		renderIf: (condition,data,iftrue,iffalse) => {
-			setInterval(function(){
+			setInterval(()=>{
 				if (!condition) {
 					obj.el.forEach(item => item.innerHTML="");
 					if (iffalse != undefined) iffalse();
@@ -248,7 +246,7 @@ function rotten(selector){
 			let rotSp=deg, rotI=0, rotCt=1;
 			if (loop.loop){
 				if (loop.delay == undefined) loop.delay=1;
-				obj.rot = setInterval(function(){
+				obj.rot = setInterval(()=>{
 					if (rotSp >= 1){
 						if (rotI >= 360) {
 							rotI=0;
@@ -270,12 +268,13 @@ function rotten(selector){
 		},
 		parent: () => obj.el[0].parentNode,
 		child: () => obj.el[0].children,
+		first: () => obj.el[0],
 		typing: option => {
 			let i = 0, text = option.str, speed = option.speed;
 			if (option.clrPrev) obj.el[0].innerHTML='';
 			if (option.loop) {
 				if (option.delay == undefined) option.delay=1000;
-				function type() {
+				type=() => {
 					if (i < text.length) {
 						obj.el[0].innerHTML += text.charAt(i);
 						i++;
@@ -283,13 +282,13 @@ function rotten(selector){
 					}
 				}
 				type();
-				setInterval(function(){
+				setInterval(()=>{
 					i = 0;
 					obj.el[0].innerHTML='';
 					type();
 				},speed*text.length+option.delay);
 			} else {
-				function type() {
+				type=()=>{
 					if (i < text.length) {
 						obj.el[0].innerHTML += text.charAt(i);
 						i++;
@@ -307,7 +306,7 @@ function rotten(selector){
 			return tmp.body.children;
 		},
 		siblings: () => {
-			Array.prototype.filter.call(obj.el[0].parentNode.children, function(child){
+			Array.prototype.filter.call(obj.el[0].parentNode.children, child => {
 				return child !== obj.el[0];
 			});
 		},
@@ -324,7 +323,7 @@ function rotten(selector){
 	}
 	return obj;
 }
-const rt = (selector) => rotten(selector);
+const rt = rotten;
 const rottenUI = {
 	setBGVideo: obj => {
 		let a = document.querySelector("body");
@@ -361,7 +360,7 @@ const rottenUI = {
 		b.style = `position: absolute;left: 0;right:0;height:${obj.size};background-color:${obj.color}`;
 		if (obj.speed == undefined) obj.speed = 3;
 		let c=0;
-		let count = setInterval(function(){
+		let count = setInterval(()=>{
 			c++;
 			b.style.width = c + "%";
 			if (c==101){
