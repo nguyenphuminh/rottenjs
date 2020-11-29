@@ -462,7 +462,7 @@ Set style attribute:
 
 Using css:
 
-	rdom.attr(el, [
+	rdom.css(el, [
 		[property1, value1],
 		[property2, value2]
 	]);
