@@ -323,6 +323,8 @@ rdom.css = (el, property) => {
 	});
 }
 rdom.contains = (el, child) => el !== child && el.contains(child);
+rdom.on = (el, event, callback) => el.addEventListener(event, callback);
+rdom.off = (el, event, callback) => el.removeEventListener(event, callback); 
 const rUI = {
 	setBGVideo: obj => {
 		let a = document.querySelector("body");
