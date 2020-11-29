@@ -26,7 +26,7 @@ Add this tag to the 'head' tag of your .html files:
 	<script src='rotten.min.js' type='text/javascript'></script>
 
 
-## DOM manipulation using 'rt'
+## Functions
 ### Create a Rotten object:
 By using these codes, you can create a Rotten object!
 
@@ -36,7 +36,7 @@ HTML:
 
 JS:
 
-	let obj = rt('div');
+	let obj = rotten('div');
 
 ### Adding texts to the object
 You can change text contents of a object by using:
@@ -104,14 +104,8 @@ But, all of the methods above will targets all the elements, to only targets one
 
 To works with multiple attributes, you can use:
 
-	obj.mulAttr([
-		[attribute1, value1],
-		[attribute2, value2]
-	]);
-	obj.mulProp([
-		[attribute1, value1],
-		[attribute2, value2]
-	]);
+	obj.mulAttr([attribute1, attribute2],[value1, value2]);
+	obj.mulProp([attribute1, attribute2],[value1, value2]);
 
 ### Working with styles and CSS
 You can easily change css property of an object using:
@@ -135,10 +129,7 @@ Example:
 
 To works with multiple css properties, you can use:
 
-	obj.mulCSS([
-		[property1, value1],
-		[property2, value2]
-	]);
+	obj.mulCSS([property1,property2], [value1, value2]);
 
 ### Events
 You can add an event by using:
@@ -283,7 +274,7 @@ Example:
 
 ### Create new child element
 
-	obj.newEl(tag_name,HTML_content,position,attributes);
+	obj.newEl(tag_name,HTML_content,position,attributes,attributes_values);
 
 Example:
 
@@ -295,9 +286,40 @@ Prepend:
 
 You can also set attributes for it, example:
 
-	obj.newEl('p','Hello guys','front',[
-		['class','title']
-	]);
+	obj.newEl('p','Hello guys','front',['class','title'],['Hello','RottenJS Object']);
+
+### Create a new HTML element
+
+	let newElement = obj.createEl(tagname,content);
+
+Example:
+
+	// Create new element consist of a "p" tag with innerHTML of 'Hello'
+	let newElement = obj.createEl('p','Hello');
+
+You can mount that element onto another element using appendEl and prependEl:
+
+	obj.appendEl(newElement);
+	obj.prependEl(newElement);
+
+The differences between append() and appendEl() is that append() can insert text to the innerHTML of the element, while appendEl can insert text and objects we have created!
+
+You can also set attributes for those new elements you have created, example:
+
+	let newElement = obj.createEl('p','Hello',['class','title'],['Hello','RottenJS Object']);
+
+To remove an element, use:
+
+	obj.disableEl(element);
+
+Example:
+
+	let newElement = obj.createEl('p','Hello');
+	obj.disableEl(newElement);
+
+You can also remove normal element, example:
+
+	obj.disableEl(document.querySelector('div'));
 
 ### Element's title
 Return element's title attribute:
@@ -332,6 +354,19 @@ Proceeding typing animations can be done with:
 	});
 
 Set 'clrPrev' to <b>true</b> if you want to clear the previous content before typing. If you set 'loop' to true, then it will write the string endlessly after 'delay' millisecond(s).
+
+### States of object (save current element to localStorage)
+Save current state:
+
+	obj.saveState();
+
+Load saved state:
+
+	obj.loadState();
+
+Remove saved state: 
+
+	obj.removeState();
 
 ### Siblings
 
@@ -383,6 +418,10 @@ In 1.2.x, 'obj.el' is just a variable that holds a single DOM element, but in 1.
 
 	obj.prev()
 
+### Check if a parent node contains a child node
+
+	obj.contains(child, parent);
+
 ### Check if the current node is the same as the other node
 
 	obj.is(other);
@@ -410,72 +449,11 @@ Parse JSON string:
 	obj.isArray(arr);
 
 
-## DOM rendering using 'rdom'
-
-### Create a new HTML element
-Create a HTML element:
-
-	let newElement = rdom.el(tagname,content,attributes);
-
-Render that element:
-
-	rdom.render(newElement,parent_node,position,remove);
-	// Position can be "front" or "back" to render the element to the front of back of the parent node. If being left blank or null, it will automatically set to 'front'.
-	// Remove can be either true or false or blank. If true, it will replace the old element with the new one, if false, it will append/prepend it to the parent node.
-
-Example:
-
-	// Create new element consist of a "p" tag with innerHTML of 'Hello'. It also has 'class' set to 'hello'.
-	let newElement = obj.createEl('p','Hello',[
-		['class', 'hello']
-	]);
-
-Render it to the front of the body tag:
-
-	rdom.render(newElement,document.body,'front',true);
-
-You can also mount that element onto another element using appendEl and prependEl of rt:
-
-	obj.appendEl(newElement);
-	obj.prependEl(newElement);
-
-The differences between append() and appendEl() is that append() can insert text to the innerHTML of the element, while appendEl() can HTML elements we have created!
-
-To remove an element, use:
-	
-	rdom.remove(element,parent_node);
-
-Remove in rt:
-
-	obj.disableEl(element);
-
-You can set attribute using:
-
-	rdom.attr(el, [
-		[attribute1, value1],
-		[attribute2, value2]
-	]);
-
-Set style attribute:
-
-	rdom.style(el, style);
-
-Using css:
-
-	rdom.attr(el, [
-		[property1, value1],
-		[property2, value2]
-	]);
-
-### Check if a parent node contains a child node
-
-	obj.contains(child, parent);
-
-# Custom apis for web development using 'rUI'
+## Custom methods for web development using rottenUI
 
 ### Add a background video
 
-	rUI.setBGVideo({
+	rottenUI.setBGVideo({
 		path:/*Video file's path*/,
 		type:/*File type(mp4,mov)*/,
 		style:/*Optional style*/,
@@ -483,42 +461,59 @@ Using css:
 
 ### Add a background image
 
-	rUI.setBGImage(img_path);
+	rottenUI.setBGImage(img_path);
 
 ### Change website's title
 
-	rUI.setTitle(title);
+	rottenUI.setTitle(title);
 
 ### Change website's logo
 
-	rUI.setLogo(logo_path);
+	rottenUI.setLogo(logo_path);
 
 ### Add a top loading (intro) bar
 
-	rUI.setLoadBar({
+	rottenUI.setLoadBar({
 		color:/*CSS Color*/,
 		size:/*Size*/,
 		speed:/*Millisecond*/,
 		position:/*CSS Position*/
 	});
 
-# Device detections using 'rDev'
+## Device detections using rotDev
 
-	rDev.mobile(function(){
+	rotDev.mobile(function(){
 		//Execute if the user is using a mobile devive
 	});
-	rDev.windows(function(){
+	rotDev.windows(function(){
 		//Execute if the user is using a Windows devive
 	});
-	rDev.mac(function(){
+	rotDev.mac(function(){
 		//Execute if the user is using a Mac devive
 	});
-	rDev.linux(function(){
+	rotDev.linux(function(){
 		//Execute if the user is using a Linux devive
 	});
-	rDev.unix(function(){
+	rotDev.unix(function(){
 		//Execute if the user is using a Unix devive
 	});
-	rDev.os(os_name,function(){
+	rotDev.os(os_name,function(){
 		//Execute if the user is using a the option "os_name" device
+	});
+
+## Shorter RottenJS
+
+	// let obj = rotten('div');
+	let obj = rt('');
+
+	// rottenUI.setTitle('Rotten App');
+	rUI.setTitle('Rotten App');
+
+	/* 
+	rotDev.mobile(function(){
+		alert('This is a mobile device!');
+	});
+	*/
+	rDev.mobile(function(){
+		alert('This is a mobile device!');
 	});

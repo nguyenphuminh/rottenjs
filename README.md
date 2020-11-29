@@ -7,11 +7,11 @@
 	<a href="https://npmcharts.com/compare/rottenjs?minimal=true"><img src="https://img.shields.io/npm/dm/rottenjs.svg?sanitize=true" alt="Downloads"></a>
 	<a href="https://www.npmjs.com/package/rottenjs"><img src="https://img.shields.io/npm/v/rottenjs.svg?sanitize=true" alt="Version"></a>
 	<a href="https://github.com/nguyenphuminh/rottenjs/blob/main/.github/CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"></a>
-	
+	<a href="https://github.com/nguyenphuminh/rottenjs/search?l=javascript"><img alt="language" src="https://img.shields.io/badge/language-Javascript-purple.svg"></a>
 </div>
 
 ## What is RottenJS ?
-RottenJS is a light-weight Javascript library for DOM manipulation and UI development. It is extremely fast and verbose, and having to only weighs 5kb, it is suitable for projects at all sizes. Also, if you are interested in experimental or open-source projects, RottenJS might be a great choice for you!
+RottenJS is a light-weight Javascript library for DOM manipulation, HTML elements rendering and UI development. It is extremely fast and verbose, and having to only weighs 7kb, it is suitable for projects at all sizes. Also, if you are interested in experimental or open-source projects, RottenJS might be a great choice for you!
 
 ## Getting started
 ### Installation
@@ -21,7 +21,7 @@ You can clone RottenJS with git:
 
 Or install it in npm:
 
-	npm i rottenjs
+	npm install rottenjs
 
 Or you can just pull it from unpkg.com by adding this to your .html file:
 
@@ -36,7 +36,9 @@ Again, you can add this block of code rather than the one above:
 
 	<script src="https://unpkg.com/rottenjs"></script>
 
-### [Functions and methods](DOCUMENTATION.md)
+### [DOCUMENTATIONS](DOCUMENTATION.md)
+
+### [Old docs](DOCSv1.9.0.md)
 
 ## Pros and Cons
 ### Pros
@@ -50,17 +52,13 @@ Again, you can add this block of code rather than the one above:
 <li>Maintained by only one person.</li>
 
 ## Comparision with other libraries/frameworks
-### Vue, React & Angular
-Vue, React, Angular, <i>AngularJS</i> might have better usablities and capabilities than RottenJS. They outweights RottenJS when talking about features and community.
-
 ### jQuery, UmbrellaJS
-RottenJS shares similarities with three of those libraries, they are somewhat "better" than RottenJS, but RottenJS is way more lighter and is prebuilt with modules like rottenUI and rotDev which improves your development experiences and it is suitable for small or medium-scale projects.
+RottenJS shares a lot of similarities with jQuery and UmbrellaJS, but RottenJS is faster and lighter. Furthermore, RottenJS also can renders HTML elements while both of those can't.
 
 ### Redom
-Redom and RottenJS are both very lightweight libraries. But Redom is a component-based library with templating and mounting DOM elements, while RottenJS is a DOM manipulation library.
+Redom and RottenJS are both very lightweight libraries, they both can render HTML elements, but RottenJS is lighter and faster, with DOM manipulation built-in.
 
 ## Social medias
-<li href="https://youtu.be/HgabIAgfURo">Youtube</li>
 <li href="https://www.facebook.com/Rottenjs-The-Javascript-Library-112227464032668">Facebook</li>
 <li href="https://rottenjs.herokuapp.com">Website</li>
 
