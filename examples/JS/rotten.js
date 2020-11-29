@@ -7,7 +7,7 @@ function rt(selector){
 			obj.el.forEach(item => item.setAttribute(attr, value));
 		},
 		mulAttr: (attr) => obj.el.forEach(item => attr.forEach(value => item.setAttribute(value[0],value[1]))),
-		mulProp: (attr, value) => attr.forEach(value => obj.el[0].setAttribute(value[0],value[1])),
+		mulProp: (attr) => attr.forEach(value => obj.el[0].setAttribute(value[0],value[1])),
 		prop: (attr, value) => {
 			if (value == undefined) return obj.el[0].getAttribute(attr);
 			obj.el[0].setAttribute(attr, value);
