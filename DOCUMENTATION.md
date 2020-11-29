@@ -467,6 +467,11 @@ Using css:
 		[property2, value2]
 	]);
 
+Add/Remove events to the element:
+
+	rdom.on(el, event, callback);
+	rdom.off(el, event, callback);
+
 ### Check if a parent node contains a child node
 
 	obj.contains(child, parent);
