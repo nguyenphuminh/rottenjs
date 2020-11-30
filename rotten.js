@@ -301,7 +301,7 @@ const rdom = {};
 rdom.el = (tag,content,attr) => {
 	nel = document.createElement(tag);
 	if (content != undefined) nel.innerHTML = content;
-	attr.forEach(value => nel.setAttribute(value[0],value[1]));
+	if (attr != undefined) attr.forEach(value => nel.setAttribute(value[0],value[1]));
 	return nel;
 }
 rdom.render = (value,target,pos,remove) => {
