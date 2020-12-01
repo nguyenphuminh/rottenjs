@@ -36,9 +36,9 @@ Again, you can add this block of code rather than the one above:
 
 	<script src="https://unpkg.com/rottenjs"></script>
 
-### [DOCUMENTATIONS](DOCUMENTATION.md)
-
-### [Old docs](DOCSv1.9.0.md)
+### Documentations
+<li><a href="DOCUMENTATION.md">DOCUMENTATIONS</a></li>
+<li><a href="DOCSv1.9.0.md">OLD DOCS</a></li>
 
 ## Pros and Cons
 ### Pros
