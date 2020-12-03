@@ -3,6 +3,9 @@ Contributing to RottenJS!
 
 Thanks for your interests in RottenJS, if you want to contribute to the project, please consider looking at the following notes!
 
+## First notes
+Please contribute to "development/rotten.js".
+
 ## Language
 We would prefer English as the main language for contributing, but you can use Vietnamese! 
 
