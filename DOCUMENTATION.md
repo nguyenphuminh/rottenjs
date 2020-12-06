@@ -476,7 +476,21 @@ Add/Remove events to the element:
 
 	obj.contains(child, parent);
 
-# Custom apis for web development using 'rUI'
+## Components in 'rdom'
+Example:
+	
+	class Hello {
+		constructor () {
+			this.el = rdom.el('p', 'Hello, World!);
+		}
+		update(data){
+			this.el.innerHTML = data;
+		}
+	}
+	const hello = new Hello();
+	rdom.render(hello.el, document.body);
+
+## Custom apis for web development using 'rUI'
 
 ### Add a background video
 
@@ -507,7 +521,7 @@ Add/Remove events to the element:
 		position:/*CSS Position*/
 	});
 
-# Device detections using 'rDev'
+## Device detections using 'rDev'
 
 	rDev.mobile(function(){
 		//Execute if the user is using a mobile devive
