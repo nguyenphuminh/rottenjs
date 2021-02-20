@@ -11,7 +11,7 @@ function rt(selector){
 		prop: (attr, value) => {
 			if (value == undefined) return obj.el[0].getAttribute(attr);
 			obj.el[0].setAttribute(attr, value);
-		},		
+		},
 		mount: (target,pos) => {
 			if (target != undefined){
 				if (pos == 'back'){
@@ -241,6 +241,7 @@ function rt(selector){
 				obj.el[0].style.transform = `rotate(${rotSp}deg)`;
 			}
 		},
+		tclick: (callback) => obj.el.forEach(item => item.ondblclick = callback),
 		parent: () => obj.el[0].parentNode,
 		child: () => obj.el[0].children,
 		first: () => obj.el[0],
