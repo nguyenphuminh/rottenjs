@@ -426,7 +426,7 @@ Render that element:
 Example:
 
 	// Create new element consist of a "p" tag with innerHTML of 'Hello'. It also has 'class' set to 'hello'.
-	let newElement = obj.createEl('p','Hello',[
+	let newElement = rdom.el('p',['Hello', rdom.el('span', 'World')],[
 		['class', 'hello']
 	]);
 
@@ -434,7 +434,7 @@ Render it to the front of the body tag:
 
 	rdom.render(newElement,document.body,'front',true);
 
-You can also mount that element onto another element using appendEl and prependEl of rt:
+You can also mount that element onto another element using appendEl and prependEl of rt():
 
 	obj.appendEl(newElement);
 	obj.prependEl(newElement);
