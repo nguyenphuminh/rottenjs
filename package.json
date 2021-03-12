@@ -1,11 +1,8 @@
 {
   "name": "rottenjs",
-  "version": "2.1.2",
-  "description": "A simple Javascript library for DOM and UI development",
-  "main": "rotten.js",
-  "directories": {
-    "example": "examples"
-  },
+  "version": "2.3.0",
+  "description": "A light-weight Javascript library for DOM manipulation",
+  "main": "rotten.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,9 +11,10 @@
     "url": "git+https://github.com/nguyenphuminh/rottenjs.git"
   },
   "keywords": [
-    "javascript-framework",
+    "javascript",
     "javascript-library",
-    "javascript"
+    "javascript-framework",
+    "dom-manipulation"
   ],
   "author": "Nguyen Phu Minh",
   "license": "MIT",

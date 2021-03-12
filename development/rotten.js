@@ -301,7 +301,12 @@ function rt(selector){
 const rdom = {};
 rdom.el = (tag,content,attr) => {
 	nel = document.createElement(tag);
-	if (content != undefined) nel.innerHTML = content;
+	if (content != undefined) {
+		if (typeof content == "string") 
+			nel.innerHTML = content;
+		else if (Array.isArray(content))
+			content.forEach(item => nel.append(item));
+	} 
 	if (attr != undefined) attr.forEach(value => nel.setAttribute(value[0],value[1]));
 	return nel;
 }
