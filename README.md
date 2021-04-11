@@ -43,20 +43,17 @@ Again, you can add this block of code rather than the one above:
 ## Pros and Cons
 ### Pros
 <li>Written in pure Javascript, easy to setup, no toolings needed.</li>
-<li>Extremely lightweigh and fast.</li>
-<li>Prebuilt with decent modules.</li>
+<li>Extremely lightweight and fast.</li>
+<li>Prebuilt with decent stuffs.</li>
 
 ### Cons
 <li>Not highly optimized.</li>
-<li>Small community.</li>
-<li>Maintained by only one person.</li>
+<li>Kinda infestedd with bad codes.</li>
+<li>Version naming issues.</li>
 
 ## Comparision with other libraries/frameworks
 ### jQuery, UmbrellaJS
 RottenJS shares a lot of similarities with jQuery and UmbrellaJS, but RottenJS is faster and lighter. Furthermore, RottenJS also can renders HTML elements while both of those can't.
-
-### Redom
-Redom and RottenJS are both very lightweight libraries, they both can render HTML elements, but RottenJS is lighter and faster, with DOM manipulation built-in.
 
 ## Social medias
 <li href="https://www.facebook.com/Rottenjs-The-Javascript-Library-112227464032668">Facebook</li>
