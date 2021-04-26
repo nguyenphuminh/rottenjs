@@ -48,7 +48,7 @@ Again, you can add this block of code rather than the one above:
 
 ### Cons
 <li>Not highly optimized.</li>
-<li>Kinda infestedd with bad codes.</li>
+<li>Kinda infested with bad codes.</li>
 <li>Version naming issues.</li>
 
 ## Comparision with other libraries/frameworks
