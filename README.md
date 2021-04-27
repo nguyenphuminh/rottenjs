@@ -37,27 +37,27 @@ Again, you can add this block of code rather than the one above:
 	<script src="https://unpkg.com/rottenjs"></script>
 
 ### Documentations
-<li><a href="DOCUMENTATION.md">DOCUMENTATIONS</a></li>
-<li><a href="DOCSv1.9.0.md">OLD DOCS</a></li>
+* <a href="DOCUMENTATION.md">DOCUMENTATIONS</a>
+* <a href="DOCSv1.9.0.md">OLD DOCS</a>
 
 ## Pros and Cons
 ### Pros
-<li>Written in pure Javascript, easy to setup, no toolings needed.</li>
-<li>Extremely lightweight and fast.</li>
-<li>Prebuilt with decent stuffs.</li>
+* Written in pure Javascript, easy to setup, no toolings needed.
+* Extremely lightweight and fast.
+* Prebuilt with decent stuffs.
 
 ### Cons
-<li>Not highly optimized.</li>
-<li>Kinda infested with bad codes.</li>
-<li>Version naming issues.</li>
+* Not highly optimized.
+* Kinda infested with bad codes.
+* Version naming issues.
 
 ## Comparision with other libraries/frameworks
 ### jQuery, UmbrellaJS
 RottenJS shares a lot of similarities with jQuery and UmbrellaJS, but RottenJS is faster and lighter. Furthermore, RottenJS also can renders HTML elements while both of those can't.
 
 ## Social medias
-<li href="https://www.facebook.com/Rottenjs-The-Javascript-Library-112227464032668">Facebook</li>
-<li href="https://rottenjs.herokuapp.com">Website</li>
+* <a href="https://www.facebook.com/Rottenjs-The-Javascript-Library-112227464032668">Facebook</a>
+* <a href="https://rottenjs.herokuapp.com">Website</a>
 
 ## Copyrights and License
 Copyrights © 2020 Nguyen Phu Minh
