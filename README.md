@@ -51,6 +51,10 @@ Again, you can add this block of code rather than the one above:
 * Kinda infested with bad codes.
 * Version naming issues.
 
+## Who is using RottenJS ?
+* <a href="https://github.com/joliorg">Jolio</a>
+* <a href="https://github.com/FreakC-Foundation">FreakC</a>
+
 ## Comparision with other libraries/frameworks
 ### jQuery, UmbrellaJS
 RottenJS shares a lot of similarities with jQuery and UmbrellaJS, but RottenJS is faster and lighter. Furthermore, RottenJS also can renders HTML elements while both of those can't.
