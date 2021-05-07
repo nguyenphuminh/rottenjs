@@ -19,10 +19,6 @@ You can clone RottenJS with git:
 
 	git clone https://github.com/nguyenphuminh/RottenJS.git
 
-Or install it in npm:
-
-	npm install rottenjs
-
 Or you can just pull it from unpkg.com by adding this to your .html file:
 
 	<script src="https://unpkg.com/rottenjs"></script>
