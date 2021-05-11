@@ -22,15 +22,20 @@ You can clone RottenJS with git:
 Or you can just pull it from unpkg.com by adding this to your .html file:
 
 	<script src="https://unpkg.com/rottenjs"></script>
+	
+Or from npm:
 
-### Add RottenJS to your project
-Add this tag to the 'head' tag of your .html files:
+	npm install rottenjs
 
-	<script src='rotten.min.js' type='text/javascript'></script>
+Then, add the code:
 
-Again, you can add this block of code rather than the one above:
-
-	<script src="https://unpkg.com/rottenjs"></script>
+	// Import rottenjs to "rotten"
+	const rotten = require("rottenjs");
+	// Using rt()
+	const rt = rotten.rt;
+	// const rdom = rotten.rdom;
+	// const rUI = rotten.rUI;
+	// const rDev = rotten.rDev;
 
 ### Documentations
 * <a href="DOCUMENTATION.md">DOCUMENTATIONS</a>
