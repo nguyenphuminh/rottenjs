@@ -395,5 +395,12 @@ const rDev = {
 	},
 	os: (os,callback) => {
 		if (navigator.appVersion.indexOf(os) != -1) callback();
-	}
+	},
+	current: () => navigator.appVersion
+}
+if (typeof module === "object" && typeof module.exports === "object") {
+	module.exports.rt = rt;
+	module.exports.rDev = rDev;
+	module.exports.rUI = rUI;
+	module.exports.rdom = rdom;
 }
