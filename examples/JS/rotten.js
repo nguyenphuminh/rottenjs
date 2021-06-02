@@ -274,15 +274,7 @@ function rt(selector){
 				type();
 			}
 		},
-		isArray: arr => Array.isArray(arr),
-		parseJSON: str => JSON.parse(str),
-		parseHTML: str => {
-			let tmp = document.implementation.createHTMLDocument();
-			tmp.body.innerHTML = str;
-			return tmp.body.children;
-		},
 		siblings: () => Array.prototype.filter.call(obj.el[0].parentNode.children, child => child !== obj.el[0]),
-		now: () => Date.now(),
 		switch: target => {
 			let swap,tar;
 			obj.el.forEach(item => {
@@ -298,39 +290,40 @@ function rt(selector){
 	}
 	return obj;
 }
-const rdom = {};
-rdom.el = (tag,content,attr) => {
-	nel = document.createElement(tag);
-	if (content != undefined) {
-		if (typeof content == "string") 
-			nel.innerHTML = content;
-		else if (Array.isArray(content))
-			content.forEach(item => nel.append(item));
-	} 
-	if (attr != undefined) attr.forEach(value => nel.setAttribute(value[0],value[1]));
-	return nel;
-}
-rdom.render = (value,target,pos,remove) => {
-	if (remove) target.innerHTML = '';
-	if (pos == undefined) pos = 'front';
-	if (pos == 'front')
-		target.append(value);
-	else if (pos == 'back')
-		target.prepend(value);
-}
-rdom.remove = (value,target) => target.removeChild(value);
-rdom.attr = (el, attribute) => attribute.forEach(value => el.setAttribute(value[0],value[1]));
-rdom.style = (el, property) => el.setAttribute('style',property);
-rdom.css = (el, property) => {
-	property.forEach(value => {
-		if (el.getAttribute('style') == null) el.setAttribute('style', '');
-		let new_value = `${el.getAttribute('style')};${value[0]}:${value[1]}`
-		el.setAttribute('style', new_value);
-	});
-}
-rdom.contains = (el, child) => el !== child && el.contains(child);
-rdom.on = (el, event, callback) => el.addEventListener(event, callback);
-rdom.off = (el, event, callback) => el.removeEventListener(event, callback); 
+const rdom = {
+	el: (tag,content,attr) => {
+		nel = document.createElement(tag);
+		if (content != undefined) {
+			if (typeof content == "string") 
+				nel.innerHTML = content;
+			else if (Array.isArray(content))
+				content.forEach(item => nel.append(item));
+		} 
+		if (attr != undefined) attr.forEach(value => nel.setAttribute(value[0],value[1]));
+		return nel;
+	},
+	render: (value,target,pos,remove) => {
+		if (remove) target.innerHTML = '';
+		if (pos == undefined) pos = 'front';
+		if (pos == 'front')
+			target.append(value);
+		else if (pos == 'back')
+			target.prepend(value);
+	},
+	remove: (value,target) => target.removeChild(value),
+	attr: (el, attribute) => attribute.forEach(value => el.setAttribute(value[0],value[1])),
+	style: (el, property) => el.setAttribute('style',property),
+	css: (el, property) => {
+		property.forEach(value => {
+			if (el.getAttribute('style') == null) el.setAttribute('style', '');
+			let new_value = `${el.getAttribute('style')};${value[0]}:${value[1]}`
+			el.setAttribute('style', new_value)
+		});
+	},
+	contains: (el, child) => el !== child && el.contains(child),
+	on: (el, event, callback) => el.addEventListener(event, callback),
+	off: (el, event, callback) => el.removeEventListener(event, callback) 
+};
 const rUI = {
 	setBGVideo: obj => {
 		let a = document.querySelector("body");
@@ -395,5 +388,26 @@ const rDev = {
 	},
 	os: (os,callback) => {
 		if (navigator.appVersion.indexOf(os) != -1) callback();
-	}
+	},
+	current: () => navigator.appVersion
+}
+const rUtils = {
+	isArray: arr => Array.isArray(arr),
+	inArray: (val, arr) => arr.indexOf(val),
+	parseJSON: str => JSON.parse(str),
+	parseHTML: str => {
+		let tmp = document.implementation.createHTMLDocument();
+		tmp.body.innerHTML = str;
+		return tmp.body.children;
+	},
+	isEmptyObject: obj => Object.keys(obj).length == 0,
+	isOdd: num => num % 2 != 0,
+	now: () => Date.now()
+}
+if (typeof module === "object" && typeof module.exports === "object") {
+	module.exports.rt = rt;
+	module.exports.rDev = rDev;
+	module.exports.rUI = rUI;
+	module.exports.rdom = rdom;
+	module.exports.rUtils = rUtils;
 }

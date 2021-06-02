@@ -396,19 +396,6 @@ Or:
 
 	obj.first();
 
-### Parse datas
-Parse HTML string:
-
-	obj.parseHTML(string);
-
-Parse JSON string:
-
-	obj.parseJSON(string);
-
-### Check if it's an array
-
-	obj.isArray(arr);
-
 
 ## DOM rendering using 'rdom'
 
@@ -527,3 +514,26 @@ Add/Remove events to the element:
 	rDev.os(os_name,function(){
 		//Execute if the user is using a the option "os_name" device
 	});
+
+## Utilities
+
+### Parse HTML:
+	obj.parseHTML(string);
+
+### Parse JSON
+	obj.parseJSON(string);
+
+### Check if argument is an array
+	obj.isArray(arr);
+
+### Check is arg1 is in array arg2
+
+	obj.inArray(val, arr);
+
+### Check if number is odd
+
+	obj.isOdd(num);
+
+### Check if object is empty
+
+	obj.isEmptyObject(someObj);
