@@ -11,7 +11,7 @@
 </div>
 
 ## What is RottenJS ?
-RottenJS is a light-weight Javascript library for DOM manipulation, HTML elements rendering and UI development. It is extremely fast and verbose, and having to only weighs 7kb, it is suitable for projects at all sizes. Also, if you are interested in experimental or open-source projects, RottenJS might be a great choice for you!
+RottenJS is a light-weight(8kb), all-in-one Javascript library. It can be used for DOM manipulation and web development. RottenJS also comes with HTML rendering, device/os detection and other utilities that might come in handy. The library is recommended for personal projects as its very light and scale well with medium-sized websites, but not recommended for big websites that are in production. RottenJS is a perfect fit for you if you want to create projects quick and easy, or if you just want to mess around with open-source libraries. 
 
 ## Getting started
 ### Installation
@@ -27,7 +27,7 @@ Or from npm:
 
 	npm install rottenjs
 
-Then, add the code:
+If you're using NodeJS, please consider check out this code first:
 
 	// Import rottenjs to "rotten"
 	const rotten = require("rottenjs");
@@ -38,19 +38,18 @@ Then, add the code:
 	// const rDev = rotten.rDev;
 
 ### Documentations
-* <a href="DOCUMENTATION.md">DOCUMENTATIONS</a>
-* <a href="DOCSv1.9.0.md">OLD DOCS</a>
+* <a href="DOCUMENTATION.md">Current</a>
+* <a href="DOCSv1.9.0.md">1.x versions</a>
 
 ## Pros and Cons
 ### Pros
-* Written in pure Javascript, easy to setup, no toolings needed.
-* Extremely lightweight and fast.
-* Prebuilt with decent stuffs.
+* Written in pure Javascript, easy to setup and use, no toolings needed.
+* Lightweight.
+* All-in-one.
 
 ### Cons
-* Not highly optimized.
-* Kinda infested with bad codes.
-* Version naming issues.
+* Not optimized.
+* Works not that well with big sites
 
 ## Who is using RottenJS ?
 * <a href="https://github.com/joliorg">Jolio</a>
@@ -58,7 +57,7 @@ Then, add the code:
 
 ## Comparision with other libraries/frameworks
 ### jQuery, UmbrellaJS
-RottenJS shares a lot of similarities with jQuery and UmbrellaJS, but RottenJS is faster and lighter. Furthermore, RottenJS also can renders HTML elements while both of those can't.
+RottenJS shares a lot of similarities with jQuery and UmbrellaJS, but RottenJS is a bit lighter.
 
 ## Social medias
 * <a href="https://www.facebook.com/Rottenjs-The-Javascript-Library-112227464032668">Facebook</a>
