@@ -1,53 +1,25 @@
 {
-  "_from": "rottenjs",
-  "_id": "rottenjs@2.4.0",
-  "_inBundle": false,
-  "_integrity": "sha512-tZq99gpcKiFNyQWnOQFd2t/DVxfg5EUnsev4uIUUY4nB+aDMwD5xB1/ShZqaomLo13c0twtmXI9IPdGp9TG0Aw==",
-  "_location": "/rottenjs",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "tag",
-    "registry": true,
-    "raw": "rottenjs",
-    "name": "rottenjs",
-    "escapedName": "rottenjs",
-    "rawSpec": "",
-    "saveSpec": null,
-    "fetchSpec": "latest"
-  },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/rottenjs/-/rottenjs-2.4.0.tgz",
-  "_shasum": "53f54ec6e32dbcfd3e5bef2532114532e13593b9",
-  "_spec": "rottenjs",
-  "_where": "C:\\Users\\admin\\Desktop",
-  "author": {
-    "name": "Nguyen Phu Minh"
-  },
-  "bugs": {
-    "url": "https://github.com/nguyenphuminh/rottenjs/issues"
-  },
-  "bundleDependencies": false,
-  "deprecated": false,
+  "name": "rottenjs",
+  "version": "2.6.2",
   "description": "A light-weight Javascript library for DOM manipulation",
-  "homepage": "https://github.com/nguyenphuminh/rottenjs#readme",
+  "main": "rotten.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nguyenphuminh/rottenjs.git"
+  },
   "keywords": [
     "javascript",
     "javascript-library",
     "javascript-framework",
     "dom-manipulation"
   ],
+  "author": "Nguyen Phu Minh",
   "license": "MIT",
-  "main": "rotten.min.js",
-  "name": "rottenjs",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nguyenphuminh/rottenjs.git"
+  "bugs": {
+    "url": "https://github.com/nguyenphuminh/rottenjs/issues"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "version": "2.4.0"
+  "homepage": "https://github.com/nguyenphuminh/rottenjs#readme"
 }

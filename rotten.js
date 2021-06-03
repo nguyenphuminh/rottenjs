@@ -127,7 +127,7 @@ function rt(selector){
 					}
 				}
 			}
-			if (!denied && (typeof original !== "undefined" || original === null)) original();
+			if (!denied && (typeof original !== "undefined" || original !== null)) original();
 		},
 		val: value => {
 			if (typeof value === "undefined" || value === null)
@@ -207,7 +207,7 @@ function rt(selector){
 			}
 		},
 		tclick: (callback) => {
-			if (typeof callback !== "undefined" || callback === null) obj.el.forEach(item => item.ondblclick = callback)
+			if (typeof callback !== "undefined" || callback !== null) obj.el.forEach(item => item.ondblclick = callback)
 		},
 		parent: () => obj.el[0].parentNode,
 		child: () => obj.el[0].children,
@@ -267,7 +267,7 @@ const rdom = {
 			else if (Array.isArray(content))
 				content.forEach(item => nel.append(item));
 		} 
-		if (typeof attr !== undefined || attr === undefined) attr.forEach(value => nel.setAttribute(value[0],value[1]));
+		if (typeof attr !== undefined || attr !== null) attr.forEach(value => nel.setAttribute(value[0],value[1]));
 		return nel;
 	},
 	render: (value,target,pos,remove) => {
@@ -306,14 +306,16 @@ const rUI = {
 		a.innerHTML = `<img style="position:fixed; right:0; top:0; min-width:100%; min-height:100%; width:auto; height:auto; z-index:-1" src="${path}"></img> ${a.innerHTML}`;
 	},
 	setLoadBar: obj => {
+		let opt = {};
+		if (typeof obj !== "undefined" || obj !== null) opt = obj; 
 		let a = document.querySelector("body");
 		a.innerHTML = "<div class='processjs'></div>" + a.innerHTML;
 		let b = document.querySelector(".processjs");
-		if (obj.position == undefined) obj.position = "absolute";
-		if (obj.size == undefined) obj.size = "5px";
-		if (obj.color == undefined) obj.color = "red";
-		b.style = `position: absolute;left: 0;right:0;height:${obj.size};background-color:${obj.color}`;
-		if (obj.speed == undefined) obj.speed = 3;
+		if (typeof opt.position === "undefined" || opt.position === null) opt.position = "absolute";
+		if (typeof opt.size === "undefined" || opt.size === null) opt.size = "5px";
+		if (typeof opt.color === "undefined" || opt.color === null) opt.color = "red";
+		b.style = `position: absolute;left:0;right:0;top:0;height:${opt.size};background-color:${opt.color}`;
+		if (typeof opt.speed === "undefined" || opt.speed === null) opt.speed = 3;
 		let c=0;
 		let count = setInterval(()=>{
 			c++;
@@ -322,7 +324,7 @@ const rUI = {
 				clearInterval(count);
 				b.outerHTML = "";
 			}
-		},obj.speed);
+		},opt.speed);
 	}
 }
 const rDev = {
