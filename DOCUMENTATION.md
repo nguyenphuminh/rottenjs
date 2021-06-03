@@ -367,9 +367,11 @@ In 1.2.x, 'obj.el' is just a variable that holds a single DOM element, but in 1.
 
 	obj.prev()
 
-### Check if the current node is the same as the other node
+### Check if the current element's html is the same as a string
 
 	obj.is(other);
+	
+### Check if the current element is the same as another element
 
 ### Grabbing the first node found
 You can use:
