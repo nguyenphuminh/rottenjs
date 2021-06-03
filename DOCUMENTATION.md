@@ -231,18 +231,6 @@ If you want to set the value of the input tag, you can type in:
 	// If not checked, then executes unchecked()
 	obj.check(checked,unchecked);
 
-### Two ways binding in HTML form (sort of)
-Binding with inputs:
-	
-	// Every times data changes, it will be inserted to 'target' and callback() will be executed.
-	obj.applyEl(target,callback);
-
-Binding with checkboxs:
-
-	// If checked, then executes checked().
-	// If not checked, then executes unchecked().
-	obj.aplCheckEl(checked,unchecked);
-
 ### Click event
 You can add a click event for an object through:
 
@@ -336,10 +324,6 @@ Set 'clrPrev' to <b>true</b> if you want to clear the previous content before ty
 ### Siblings
 
 	obj.siblings();
-
-### Return the number of milliseconds elapsed since January 1
-
-	obj.now();
 
 ### Fade in and fade out animation
 
@@ -477,14 +461,6 @@ Add/Remove events to the element:
 
 	rUI.setBGImage(img_path);
 
-### Change website's title
-
-	rUI.setTitle(title);
-
-### Change website's logo
-
-	rUI.setLogo(logo_path);
-
 ### Add a top loading (intro) bar
 
 	rUI.setLoadBar({
@@ -537,3 +513,7 @@ Add/Remove events to the element:
 ### Check if object is empty
 
 	obj.isEmptyObject(someObj);
+
+### Return the number of milliseconds elapsed since January 1
+
+	obj.now();
