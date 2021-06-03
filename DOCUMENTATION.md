@@ -373,6 +373,8 @@ In 1.2.x, 'obj.el' is just a variable that holds a single DOM element, but in 1.
 	
 ### Check if the current element is the same as another element
 
+	obj.sameEl(other);
+
 ### Grabbing the first node found
 You can use:
 
