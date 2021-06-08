@@ -4,12 +4,18 @@ function rt(selector){
 	const obj = {
 		el: document.querySelectorAll(selector),
 		attr: (attr, value) => {
+			if (typeof attr === "undefined" || attr === null) {
+				let attrList = [];
+				obj.el.forEach(item => attrList.push(item.attributes));
+				return attrList;
+			}
 			if (typeof value === "undefined" || value === null) return obj.el[0].getAttribute(attr);
 			obj.el.forEach(item => item.setAttribute(attr, value));
 		},
 		mulAttr: (attr) => obj.el.forEach(item => attr.forEach(value => item.setAttribute(value[0],value[1]))),
 		mulProp: (attr) => attr.forEach(value => obj.el[0].setAttribute(value[0],value[1])),
 		prop: (attr, value) => {
+			if (typeof attr === "undefined" || attr === null) return obj.el[0].attributes;
 			if (typeof value === "undefined" || value === null) return obj.el[0].getAttribute(attr);
 			obj.el[0].setAttribute(attr, value);
 		},
@@ -249,6 +255,7 @@ function rt(selector){
 			});
 		},
 		is: target => obj.el[0].outerHTML === target,
+		same: target => obj.el[0].innerHTML === target,
 		next: () => obj.el[0].nextElementSibling,
 		prev: () => obj.el[0].previousElementSibling
 	}
@@ -304,21 +311,21 @@ const rUI = {
 	setLoadBar: obj => {
 		let opt = {};
 		if (!(typeof obj === "undefined" || obj === null)) opt = obj; 
-		let a = document.querySelector("body");
-		a.innerHTML = "<div class='processjs'></div>" + a.innerHTML;
-		let b = document.querySelector(".processjs");
+		let body = document.querySelector("body");
+		body.innerHTML = "<div class='processjs'></div>" + body.innerHTML;
+		let line = document.querySelector(".processjs");
 		if (typeof opt.position === "undefined" || opt.position === null) opt.position = "absolute";
 		if (typeof opt.size === "undefined" || opt.size === null) opt.size = "5px";
 		if (typeof opt.color === "undefined" || opt.color === null) opt.color = "red";
-		b.style = `position: absolute;left:0;right:0;top:0;height:${opt.size};background-color:${opt.color}`;
+		line.style = `position: absolute;left:0;right:0;top:0;height:${opt.size};background-color:${opt.color}`;
 		if (typeof opt.speed === "undefined" || opt.speed === null) opt.speed = 3;
-		let c=0;
-		let count = setInterval(()=>{
-			c++;
-			b.style.width = c + "%";
-			if (c === 101){
-				clearInterval(count);
-				b.outerHTML = "";
+		let count = 0;
+		let loop = setInterval(()=>{
+			count++;
+			line.style.width = count + "%";
+			if (count === 101){
+				clearInterval(loop);
+				line.outerHTML = "";
 			}
 		},opt.speed);
 	}
