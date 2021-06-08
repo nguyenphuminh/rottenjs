@@ -14,7 +14,7 @@ function rt(selector){
 			obj.el[0].setAttribute(attr, value);
 		},
 		mount: (target,pos) => {
-			if (typeof target !== "undefined" || target !== null){
+			if (!(typeof target === "undefined" || target === null)){
 				let tg = document.querySelector(target);
 				tg.innerHTML = pos === "back" ? obj.el[0].outerHTML + tg.innerHTML : tg.innerHTML + obj.el[0].outerHTML;
 			}
@@ -40,17 +40,17 @@ function rt(selector){
 			obj.el.forEach(item => item.setAttribute('style', value));
 		},
 		hide: (time, callback) => {
-			if (typeof time === "undefined" || time === null) time=0;
+			time = time || 0;
 			setTimeout(()=>{
-				obj.el.forEach(item => item.style.display = 'none');
-				if (typeof callback !== "undefined" || callback !== null) callback();
+				obj.el.forEach(item => item.style.display = 'none')
+				if (!(typeof callback === "undefined" || callback === null)) callback();
 			},time)
 		},
 		show: (time, callback) => {
-			if (typeof time === "undefined" || time === null) time=0;
+			time = time || 0;
 			setTimeout(()=>{
 				obj.el.forEach(item => item.style.display = prevDisplay);
-				if (typeof callback !== "undefined" || callback !== null) callback();
+				if (!(typeof callback === "undefined" || callback === null)) callback();
 			},time)
 		},
 		fadeOut: (time,callback) => {
@@ -127,7 +127,7 @@ function rt(selector){
 					}
 				}
 			}
-			if (!denied && (typeof original !== "undefined" || original !== null)) original();
+			if (!denied && !(typeof original === "undefined" || original === null)) original();
 		},
 		val: value => {
 			if (typeof value === "undefined" || value === null)
@@ -136,18 +136,16 @@ function rt(selector){
 				obj.el[0].value = value;
 		},
 		check: (checked,unchecked) => {
-			if ((typeof checked !== "undefined" || checked !== null) && (typeof unchecked !== "undefined" || unchecked !== null)){
+			if (!(typeof checked === "undefined" || checked === null) && !(typeof unchecked === "undefined" || unchecked === null)){
 				if (obj.el[0].checked)
 					checked();
 				else
 					unchecked();
 			}
 		},
-		click: callback => {
-			if (typeof callback !== "undefined" || callback !== null) obj.el.forEach(item => item.onclick = () => callback());
-		},
+		click: callback => !(typeof callback === "undefined" || callback === null) && obj.el.forEach(item => item.onclick = () => callback()),
 		hover: (outhover, onhover) => {
-			if ((typeof outhover !== "undefined" || outhover !== null) && (typeof onhover !== "undefined" || outhover !== null)) {
+			if (!(typeof outhover === "undefined" || outhover === null) && !(typeof onhover === "undefined" || outhover === null)) {
 				obj.el.forEach(item => {
 					item.onmouseleave = () => outhover();
 					item.onmouseenter = () => onhover();
@@ -161,7 +159,7 @@ function rt(selector){
 		scroll: () => obj.el[0].scrollIntoView({ behavior: 'smooth' }),
 		newEl: (tag,content,pos,attr) => {
 			if (typeof pos === "undefined" || pos === null) pos = 'front';
-			if ((typeof tag !== "undefined" || tag !== null) && (content !== "undefined" || content !== null)){
+			if (!(typeof tag === "undefined" || tag === null) && !(content === "undefined" || content === null)){
 				let nel = document.createElement(tag);
 				nel.innerHTML = content;
 				attr.forEach(value => nel.setAttribute(value[0],value[1]));
@@ -177,6 +175,7 @@ function rt(selector){
 		},
 		disableEl: value => obj.el.forEach(item => item.removeChild(value)),
 		prependEl: value => obj.el.forEach(item => item.prepend(value)),
+		sameEl: target => obj.el[0].outerHTML === target.outerHTML,
 		addClass: value => obj.el.forEach(item => item.classList.add(value)),
 		removeClass: value => obj.el.forEach(item => item.classList.remove(value)),
 		hasClass: value => obj.el[0].classList.contains(value),
@@ -206,9 +205,7 @@ function rt(selector){
 				obj.el[0].style.transform = `rotate(${rotSp}deg)`;
 			}
 		},
-		tclick: (callback) => {
-			if (typeof callback !== "undefined" || callback !== null) obj.el.forEach(item => item.ondblclick = callback)
-		},
+		tclick: (callback) => !(typeof callback === "undefined" || callback === null) && obj.el.forEach(item => item.ondblclick = callback),
 		parent: () => obj.el[0].parentNode,
 		child: () => obj.el[0].children,
 		first: () => obj.el[0],
@@ -252,7 +249,6 @@ function rt(selector){
 			});
 		},
 		is: target => obj.el[0].outerHTML === target,
-		sameEl: target => obj.el[0].outerHTML === target.outerHTML,
 		next: () => obj.el[0].nextElementSibling,
 		prev: () => obj.el[0].previousElementSibling
 	}
@@ -261,13 +257,13 @@ function rt(selector){
 const rdom = {
 	el: (tag,content,attr) => {
 		nel = document.createElement(tag);
-		if (typeof content !== "undefined" || content !== null) {
+		if (!(typeof content === "undefined" || content === null)) {
 			if (typeof content === "string") 
 				nel.innerHTML = content;
 			else if (Array.isArray(content))
 				content.forEach(item => nel.append(item));
 		} 
-		if (typeof attr !== undefined || attr !== null) attr.forEach(value => nel.setAttribute(value[0],value[1]));
+		if (!(typeof attr === undefined || attr === null)) attr.forEach(value => nel.setAttribute(value[0],value[1]));
 		return nel;
 	},
 	render: (value,target,pos,remove) => {
@@ -296,7 +292,7 @@ const rUI = {
 	setBGVideo: obj => {
 		let a = document.querySelector("body");
 		a.innerHTML = '<video style="position:fixed; right:0; top:0; min-width:100%; min-height:100%; width:auto; height:auto; z-index:-1" autoplay loop class="baceo-vid" muted plays-inline><source src='+obj.path+' type=video/'+obj.type+'></video>'+a.innerHTML;
-		if (typeof obj.style !== "undefined" || obj.style !== null){
+		if (!(typeof obj.style === "undefined" || obj.style === null)){
 			let b = document.querySelector(".baceo-vid").style;
 			b = b + obj.style;
 		}
@@ -307,7 +303,7 @@ const rUI = {
 	},
 	setLoadBar: obj => {
 		let opt = {};
-		if (typeof obj !== "undefined" || obj !== null) opt = obj; 
+		if (!(typeof obj === "undefined" || obj === null)) opt = obj; 
 		let a = document.querySelector("body");
 		a.innerHTML = "<div class='processjs'></div>" + a.innerHTML;
 		let b = document.querySelector(".processjs");
@@ -320,7 +316,7 @@ const rUI = {
 		let count = setInterval(()=>{
 			c++;
 			b.style.width = c + "%";
-			if (c==101){
+			if (c === 101){
 				clearInterval(count);
 				b.outerHTML = "";
 			}
@@ -328,32 +324,21 @@ const rUI = {
 	}
 }
 const rDev = {
-	mobile: callback => {
-		if ((navigator.userAgent.match(/Android/i) 
-			|| navigator.userAgent.match(/webOS/i) 
-			|| navigator.userAgent.match(/iPhone/i) 
-			|| navigator.userAgent.match(/iPad/i) 
-			|| navigator.userAgent.match(/iPod/i) 
-			|| navigator.userAgent.match(/BlackBerry/i) 
-			|| navigator.userAgent.match(/Windows Phone/i))
-			&& (typeof callback !== "undefined" || callback !== null)
-			) callback();
-	},
-	windows: callback => {
-		if (navigator.appVersion.indexOf("Win") !== -1 && (typeof callback !== "undefined" || callback !== null)) callback();
-	},
-	mac: callback => {
-		if (navigator.appVersion.indexOf("Mac") !== -1 && (typeof callback !== "undefined" || callback !== null)) callback();
-	},
-	linux: callback => {
-		if (navigator.appVersion.indexOf("Linux") !== -1 && (typeof callback !== "undefined" || callback !== null)) callback();
-	},
-	unix: callback => {
-		if (navigator.appVersion.indexOf("X11") !== -1 && (typeof callback !== "undefined" || callback !== null)) callback();
-	},
-	os: (os,callback) => {
-		if (navigator.appVersion.indexOf(os) !== -1 && (typeof callback !== "undefined" || callback !== null)) callback();
-	},
+	mobile: callback => 
+		((navigator.userAgent.match(/Android/i) 
+		|| navigator.userAgent.match(/webOS/i) 
+		|| navigator.userAgent.match(/iPhone/i) 
+		|| navigator.userAgent.match(/iPad/i) 
+		|| navigator.userAgent.match(/iPod/i) 
+		|| navigator.userAgent.match(/BlackBerry/i) 
+		|| navigator.userAgent.match(/Windows Phone/i))
+		&& (typeof callback !== "undefined" || callback !== null)
+		) && callback(),
+	windows: callback => (~navigator.appVersion.indexOf("Win") && (typeof callback !== "undefined" || callback !== null)) && callback(),
+	mac: callback => (~navigator.appVersion.indexOf("Mac") && (typeof callback !== "undefined" || callback !== null)) && callback(),
+	linux: callback => (~navigator.appVersion.indexOf("Linux") && (typeof callback !== "undefined" || callback !== null)) && callback(),
+	unix: callback => (~navigator.appVersion.indexOf("X11") && (typeof callback !== "undefined" || callback !== null)) && callback(),
+	os: (os,callback) => (~navigator.appVersion.indexOf(os) && (typeof callback !== "undefined" || callback !== null)) && callback(),
 	current: () => navigator.appVersion
 }
 const rUtils = {
