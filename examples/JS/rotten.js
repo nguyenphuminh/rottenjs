@@ -147,6 +147,8 @@ function rt(selector){
 					checked();
 				else
 					unchecked();
+			} else {
+				return obj.el[0].checked
 			}
 		},
 		click: callback => !(typeof callback === "undefined" || callback === null) && obj.el.forEach(item => item.onclick = () => callback()),
