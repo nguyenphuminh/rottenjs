@@ -11,7 +11,17 @@
 </div>
 
 ## What is RottenJS ?
-RottenJS is a light-weight(8kb), all-in-one Javascript library. It can be used for DOM manipulation and web development. RottenJS also comes with HTML rendering, device/os detection and other utilities that might come in handy. The library is recommended for personal projects as its very light and scale well with medium-sized websites, but not recommended for big websites that are in production. RottenJS is a perfect fit for you if you want to create projects quick and easy, or if you just want to mess around with open-source libraries. 
+RottenJS is a light-weight(8kb), all-in-one Javascript library. It can be used for DOM manipulation, but it also provides many utilites for you to create websites with charm. The library is recommended for personal projects as its very light and scale well with medium-sized websites, but not recommended for big websites that are in production. RottenJS is a perfect fit for you if you want to create projects quick and easy, or if you just want to mess around with open-source libraries. 
+
+## Comparision with other libraries/frameworks
+
+| Size               | Rotten.js   | Cash        | Zepto 1.2.0 | jQuery Slim 3.4.1 |
+| ------------------ | ----------- | ----------- | ----------- | ----------------- |
+| Unminified         | **13.9 KB** | 36.5 KB     | 58.7 KB     | 227 KB            |
+| Minified           | **7.8 KB**  | 16 KB       | 26 KB       | 71 KB             |
+| Minified & Gzipped | **2.6 KB**  | 6 KB        | 9.8 KB      | 24.4 KB           |
+
+When it comes to size, Rotten.js totally shine, so if you want your website to be fast and light, Rotten.js can be a great option!
 
 ## Getting started
 ### Installation
@@ -54,10 +64,6 @@ If you're using NodeJS, please consider check out this code first:
 ## Who is using RottenJS ?
 * <a href="https://github.com/joliorg">Jolio</a>
 * <a href="https://github.com/FreakC-Foundation">FreakC</a>
-
-## Comparision with other libraries/frameworks
-### jQuery, UmbrellaJS
-RottenJS shares a lot of similarities with jQuery and UmbrellaJS, but RottenJS is a bit lighter.
 
 ## Social medias
 * <a href="https://www.facebook.com/Rottenjs-The-Javascript-Library-112227464032668">Facebook</a>
