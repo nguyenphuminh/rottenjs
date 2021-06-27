@@ -4,6 +4,7 @@
 	<p>A simple, light-weight Javascript library for DOM manipulation and UI development</p>
 	<br/>
 	<a href="https://github.com/nguyenphuminh/rottenjs/blob/master/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-orange.svg"/></a>
+	<a href="https://bundlephobia.com/package/rottenjs@2.6.5"><img src="https://badgen.net/bundlephobia/minzip/rottenjs"/></a>
 	<a href="https://npmcharts.com/compare/rottenjs?minimal=true"><img src="https://img.shields.io/npm/dm/rottenjs.svg?sanitize=true" alt="Downloads"></a>
 	<a href="https://www.npmjs.com/package/rottenjs"><img src="https://img.shields.io/npm/v/rottenjs.svg?sanitize=true" alt="Version"></a>
 	<a href="https://github.com/nguyenphuminh/rottenjs/blob/main/.github/CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"></a>
