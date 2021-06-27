@@ -1,7 +1,7 @@
 <div align="center">
 	<img src='assets/logo.png'/>
 	<br/>
-	<p>A simple, light-weight (7kb) Javascript library for DOM manipulation and UI development</p>
+	<p>A simple, light-weight Javascript library for DOM manipulation and UI development</p>
 	<br/>
 	<a href="https://github.com/nguyenphuminh/rottenjs/blob/master/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-orange.svg"/></a>
 	<a href="https://npmcharts.com/compare/rottenjs?minimal=true"><img src="https://img.shields.io/npm/dm/rottenjs.svg?sanitize=true" alt="Downloads"></a>
@@ -11,7 +11,7 @@
 </div>
 
 ## What is RottenJS ?
-RottenJS is a light-weight(8kb), all-in-one Javascript library. It can be used for DOM manipulation, but it also provides many utilites for you to create websites with charm. The library is recommended for personal projects as its very light and scale well with medium-sized websites, but not recommended for big websites that are in production. RottenJS is a perfect fit for you if you want to create projects quick and easy, or if you just want to mess around with open-source libraries. 
+RottenJS is a light-weight(2.6kb), all-in-one Javascript library. It can be used for DOM manipulation, but it also provides many utilites for you to create websites with charm. The library is recommended for personal projects as its very light and scale well with medium-sized websites, but not recommended for big websites that are in production. RottenJS is a perfect fit for you if you want to create projects quick and easy, or if you just want to mess around with open-source libraries. 
 
 ## Comparision with other libraries/frameworks
 
