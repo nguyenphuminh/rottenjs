@@ -1,6 +1,6 @@
 function rt(selector){
 	"use strict";
-	let prevDisplay='';
+	let prevDisplay = '';
 	const obj = {
 		el: document.querySelectorAll(selector),
 		attr: (attr, value) => {
@@ -19,25 +19,25 @@ function rt(selector){
 			if (typeof value === "undefined" || value === null) return obj.el[0].getAttribute(attr);
 			obj.el[0].setAttribute(attr, value);
 		},
-		mount: (target,pos) => {
+		mount: (target, pos) => {
 			if (!(typeof target === "undefined" || target === null)){
 				let tg = document.querySelector(target);
 				tg.innerHTML = pos === "back" ? obj.el[0].outerHTML + tg.innerHTML : tg.innerHTML + obj.el[0].outerHTML;
 			}
 		},
-		removeAttr:value => obj.el.forEach(item => item.removeAttribute(value)),
-		removeProp:value => obj.el[0].removeAttribute(value),
+		removeAttr: value => obj.el.forEach(item => item.removeAttribute(value)),
+		removeProp: value => obj.el[0].removeAttribute(value),
 		css: (property, value) => {
 			obj.el.forEach(item => {
 				if (item.getAttribute('style') === null) item.setAttribute('style', '');
-				let new_value = `;${item.getAttribute('style')};${property}:${value}`
+				let new_value = `;${item.getAttribute('style')};${property}:${value}`;
 				item.setAttribute('style', new_value);
 			});
 		},
 		mulCSS: (property) => {
 			obj.el.forEach(item => property.forEach(value => {
 				if (item.getAttribute('style') === null) item.setAttribute('style', '');
-				let new_value = `;${item.getAttribute('style')};${value[0]}:${value[1]}`
+				let new_value = `;${item.getAttribute('style')};${value[0]}:${value[1]}`;
 				item.setAttribute('style', new_value);
 			}));
 		},
@@ -48,26 +48,26 @@ function rt(selector){
 		hide: (time, callback) => {
 			time = time || 0;
 			setTimeout(()=>{
-				obj.el.forEach(item => item.style.display = 'none')
-				if (!(typeof callback === "undefined" || callback === null)) callback();
-			},time)
+				obj.el.forEach(item => item.style.display = 'none');
+				if (typeof callback === "function") callback();
+			}, time);
 		},
 		show: (time, callback) => {
 			time = time || 0;
 			setTimeout(()=>{
 				obj.el.forEach(item => item.style.display = prevDisplay);
-				if (!(typeof callback === "undefined" || callback === null)) callback();
-			},time)
+				if (typeof callback === "function") callback();
+			}, time);
 		},
-		fadeOut: (time,callback) => {
+		fadeOut: (time, callback) => {
 			if (typeof time === "undefined" || time === null) time = 0;
 			obj.el.forEach(item => {
 				item.style.opacity ='0';
 				item.style.transition = `opacity ${time}ms`;
 			});
-			setTimeout(callback,time);
+			setTimeout(callback, time);
 		},
-		fadeIn: (time,callback) => {
+		fadeIn: (time, callback) => {
 			if (typeof time === "undefined" || time === null) time = 0;
 			obj.el.forEach(item => {
 				item.style.opacity = '1';
@@ -77,15 +77,15 @@ function rt(selector){
 		},
 		text: value => {
 			if (typeof value === "undefined" || value === null) return obj.el[0].innerText;
-			obj.el.forEach(item => item.innerText=value);
+			obj.el.forEach(item => item.innerText = value);
 		},
 		html: value => {
 			if (typeof value === "undefined" || value === null) return obj.el[0].innerHTML;
-			obj.el.forEach(item => item.innerHTML=value);
+			obj.el.forEach(item => item.innerHTML = value);
 		},
 		body: value => {
 			if (typeof value === "undefined" || value === null) return obj.el[0].outerHTML;
-			obj.el.forEach(item => item.outerHTML=value);
+			obj.el.forEach(item => item.outerHTML = value);
 		},
 		on: (event, callback) => obj.el.forEach(item => item.addEventListener(event, callback)),
 		off: (event, callback) => obj.el.forEach(item => item.removeEventListener(event, callback)),
@@ -115,25 +115,25 @@ function rt(selector){
 				}
 			}
 		},
-		inputs: (option,original) => {
+		inputs: (option, original) => {
 			let denied = false;
-			for (i=0;i<option.length;i++){
+			for (let i = 0; i < option.length; i++){
 				if (typeof option[i].value === 'string'){
 					if (obj.el[0].value === option[i].value){
 						option[i].callback();
-						denied=true;
+						denied = true;
 					}
 				} else if (Array.isArray(option[i].value)) {
-					for (j=0;j<value.length;j++){
+					for (let j = 0; j < value.length; j++){
 						if (option[i].value[j] === obj.el[0].value){
-							denied=true;
+							denied = true;
 							option[i].callback();
 							break;
 						}
 					}
 				}
 			}
-			if (!denied && !(typeof original === "undefined" || original === null)) original();
+			if (!denied && typeof original === "function") original();
 		},
 		val: value => {
 			if (typeof value === "undefined" || value === null)
@@ -141,8 +141,8 @@ function rt(selector){
 			else
 				obj.el[0].value = value;
 		},
-		check: (checked,unchecked) => {
-			if (!(typeof checked === "undefined" || checked === null) && !(typeof unchecked === "undefined" || unchecked === null)){
+		check: (checked, unchecked) => {
+			if (typeof checked === "function" && typeof unchecked === "function"){
 				if (obj.el[0].checked)
 					checked();
 				else
@@ -151,7 +151,7 @@ function rt(selector){
 				return obj.el[0].checked
 			}
 		},
-		click: callback => !(typeof callback === "undefined" || callback === null) && obj.el.forEach(item => item.onclick = () => callback()),
+		click: callback => typeof callback === "function" && obj.el.forEach(item => item.onclick = () => callback()),
 		hover: (outhover, onhover) => {
 			if (!(typeof outhover === "undefined" || outhover === null) && !(typeof onhover === "undefined" || outhover === null)) {
 				obj.el.forEach(item => {
@@ -177,7 +177,7 @@ function rt(selector){
 					obj.el.forEach(item => item.prepend(nel));
 			}
 		},
-		appendEl: (value,remove) => {
+		appendEl: (value, remove) => {
 			if (remove) obj.el.forEach(item => item.innerHTML='');
 			obj.el.forEach(item => item.append(value));
 		},
@@ -343,11 +343,11 @@ const rDev = {
 		|| navigator.userAgent.match(/Windows Phone/i))
 		&& (typeof callback !== "undefined" || callback !== null)
 		) && callback(),
-	windows: callback => (~navigator.appVersion.indexOf("Win") && (typeof callback !== "undefined" || callback !== null)) && callback(),
-	mac: callback => (~navigator.appVersion.indexOf("Mac") && (typeof callback !== "undefined" || callback !== null)) && callback(),
-	linux: callback => (~navigator.appVersion.indexOf("Linux") && (typeof callback !== "undefined" || callback !== null)) && callback(),
-	unix: callback => (~navigator.appVersion.indexOf("X11") && (typeof callback !== "undefined" || callback !== null)) && callback(),
-	os: (os,callback) => (~navigator.appVersion.indexOf(os) && (typeof callback !== "undefined" || callback !== null)) && callback(),
+	windows: callback => (~navigator.appVersion.indexOf("Win") && typeof callback === "function") && callback(),
+	mac: callback => (~navigator.appVersion.indexOf("Mac") && typeof callback === "function") && callback(),
+	linux: callback => (~navigator.appVersion.indexOf("Linux") && typeof callback === "function") && callback(),
+	unix: callback => (~navigator.appVersion.indexOf("X11") && typeof callback === "function") && callback(),
+	os: (os,callback) => (~navigator.appVersion.indexOf(os) && typeof callback === "function") && callback(),
 	current: () => navigator.appVersion
 }
 const rUtils = {
