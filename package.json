@@ -1,6 +1,6 @@
 {
   "name": "rottenjs",
-  "version": "2.6.5",
+  "version": "2.6.6",
   "description": "A light-weight Javascript library for DOM manipulation",
   "main": "rotten.min.js",
   "scripts": {
